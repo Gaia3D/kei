@@ -4,7 +4,7 @@
 article, aside, details, figcaption, figure, footer, header, hgroup, menu nav, section { display:block; }
 ul, ol, dl { list-style:none; }
 img, video { max-width:100%; border:0; vertical-align:top; }
-a {vertical-align:top; text-decoration:none; color:#000; }
+/*a {vertical-align:top; text-decoration:none; color:#000; }*/
 table { border-collapse:collapse; border-spacing:0; }
 input, select { vertical-align:middle; }
 html, body { margin:0; padding:0; height:100%; }
@@ -1295,28 +1295,28 @@ font-size: 16px;
 cursor: pointer;
 }
 
-.tab {
-height: 31px;
-margin: 0;
-min-width: 325px;
-}
-.tab li {
-display: inline-block;
-width: 145px;
-/* padding: 5px 0px; */
-color: #000;
-cursor: pointer;
-border: 1px solid #d9d9d9;
-border-bottom: 1px solid #ececec;
-border-radius: 3px 3px 0 0;
-background-color: #fff;
-text-align: center;
-}
-.tab li.on {
-color: #fff;
-border: 1px solid #006bd2;
-background-color: #258fff;
-}
+/*.tab {*/
+/*height: 31px;*/
+/*margin: 0;*/
+/*min-width: 325px;*/
+/*}*/
+/*.tab li {*/
+/*display: inline-block;*/
+/*width: 145px;*/
+/*!* padding: 5px 0px; *!*/
+/*color: #000;*/
+/*cursor: pointer;*/
+/*border: 1px solid #d9d9d9;*/
+/*border-bottom: 1px solid #ececec;*/
+/*border-radius: 3px 3px 0 0;*/
+/*background-color: #fff;*/
+/*text-align: center;*/
+/*}*/
+/*.tab li.on {*/
+/*color: #fff;*/
+/*border: 1px solid #006bd2;*/
+/*background-color: #258fff;*/
+/*}*/
 .input-set {
 margin: 10px 20px 10px 10px;
 float: left;
@@ -3115,3 +3115,30 @@ user-select: none; /* Standard syntax */
 .tabSetup li.shadow.on {
 	background-position: center -472px;
 }
+
+.tab {
+	height: 31px;
+	margin: 0;
+	min-width: 325px;
+}
+.tab li {display: inline-block;width: 11.6%;/* padding: 5px 0px; */color: #000;cursor: pointer;border: 1px solid #d9d9d9;border-bottom: 1px solid #ececec;border-radius: 10px;background-color: #fff;text-align: center;/*margin: 0 5px;*/}
+.tab li.on {color: #fff;border: 1px solid #d5d5d5;background-color: #19334a;}
+.tab li > a {
+	display: inline-block;
+	width: 100%;
+	height: 100%;
+	padding: 5px 0px;
+}
+.tab li > a:hover {
+	color: #fff;
+}
+.tab li:not(.on) > a:hover {
+	color: #006bd2;
+}
+.input-set {
+	margin: 10px 20px 10px 10px;
+	float: left;
+}
+
+.tabs {
+	margin-top: 10px; }
