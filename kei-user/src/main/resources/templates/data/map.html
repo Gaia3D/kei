@@ -58,13 +58,6 @@
 <!-- S: HEADER WRAP -->
 <div th:replace="~{/fragments/header :: #headerWrap}"></div>
 <!--	탬플릿 Warp		-->
-<div id="template-warp">
-	<div th:replace="~{/landscape-widget/landscape-widget :: #landscapeDiffWarp}"></div>
-	<div th:replace="~{/landscape-widget/ls-view-anals-widget :: #lsViewAnalsWarp}"></div>
-	<div th:replace="~{/landscape-widget/ls-free-anals-widget :: #lsFreeAnalsWarp}"></div>
-	<div th:replace="~{/landscape-widget/ls-height-anals-widget :: #lsHeightViewAnalsWarp}"></div>
-	<div th:replace="~{/landscape-widget/ls-saved-anals-widget :: #lsSavedAnalsWrap}"></div>
-</div>
 <div id="loadingWrap">
 	<div class="loading">
 		<span class="spinner"></span>
@@ -86,14 +79,8 @@
 		<div id="contentsWrap" class="contentsWrap" style="display: none;">
 			<div th:replace="~{/data-library/data-library :: #dataLibraryContent}"></div>
 
-			<div th:replace="~{/cityplan/cityplan :: #cityPlanContent}"></div>
-			<div th:replace="~{/landscape/landscape :: #landScapeContent}"></div>
-			<div th:replace="~{/sunshine/sunshine :: #sunShineContent}"></div>
-
 			<div th:replace="~{/data/data :: #dataContent}"></div>
-			<!--<div th:replace="~{/extrusion/list :: #extrusionContent}"></div>-->
 			<div th:replace="~{/layer/list :: #layerContent}"></div>
-			<!--<div th:replace="~{/iot/windy :: #iotContent}"></div>-->
 			<div th:replace="~{/user-policy/modify :: #userPolicyContent}"></div>
 		</div>
 		<!-- E: CONTENTS WRAP -->
@@ -110,12 +97,6 @@
 	<!-- S: DATA FILTER -->
 	<div th:replace="~{/data/data-filter :: #searchFilterContent}"></div>
 	<!-- E: DATA FILTER -->
-
-	<!-- S: CTRL WRAP -->
-	<!-- <div th:replace="~{/fragments/toolbar :: #toolbarWrap}"></div> -->
-
-	<!-- E: CTRL WRAP -->
-
 	<!-- S: MAP -->
 	<div id="magoContainer" class="mapWrap">
 		<!-- S: GNB WRAP -->
@@ -173,9 +154,6 @@
 <div th:replace="~{/data/sample-data-attribute-template :: #sampleDataAttributeDialogWrap}"></div>
 <div th:replace="~{/issue/issue-dialog :: #issueForm}"></div>
 
-<!--<div th:replace="~{/extrusion/data-library-toolbar-dialog :: #dataLibraryDialog}"></div>
-<div th:replace="~{/extrusion/design-layer-toolbar-dialog :: #designLayerDialog}"></div>-->
-
 <script type="text/javascript" th:src="@{/externlib/jquery-3.3.1/jquery.min.js(cacheVersion=${contentCacheVersion})}"></script>
 <script type="text/javascript" th:src="@{/externlib/jquery-ui-1.12.1/jquery-ui.min.js(cacheVersion=${contentCacheVersion})}"></script>
 <script type="text/javascript" th:src="@{/externlib/json-viewer/json-viewer.js(cacheVersion=${contentCacheVersion})}"></script>
@@ -207,33 +185,12 @@
 <link rel="stylesheet" th:href="@{/externlib/toastr/toastr.css(cacheVersion=${contentCacheVersion})}" />
 <link rel="stylesheet" th:href="@{/css/{lang}/ds-style.css(lang=${lang}, cacheVersion=${contentCacheVersion})}" />
 <script type="text/javascript" th:src="@{/externlib/toastr/toastr.min.js(lang=${lang},cacheVersion=${contentCacheVersion})}" ></script>
-<script type="text/javascript" th:src="@{/externlib/ds/pp-0.9-legacy.js(lang=${lang},cacheVersion=${contentCacheVersion})}" ></script>
-<script type="text/javascript" th:src="@{/externlib/ds/ppui-0.9-legacy.js(lang=${lang},cacheVersion=${contentCacheVersion})}" ></script>
-<script type="text/javascript" th:src="@{/externlib/ds/ppmap-0.9-legacy.js(lang=${lang},cacheVersion=${contentCacheVersion})}" ></script>
-<script type="text/javascript" th:src="@{/externlib/ds/dsobj-0.1-snapshot.js(lang=${lang},cacheVersion=${contentCacheVersion})}"  defer></script>
-
 <script type="text/javascript" th:src="@{/js/{lang}/design-layer.js(lang=${lang},cacheVersion=${contentCacheVersion})}" defer></script>
 <script type="text/javascript" th:src="@{/js/{lang}/data-library.js(lang=${lang},cacheVersion=${contentCacheVersion})}" defer></script>
-<script type="text/javascript" th:src="@{/js/{lang}/anals-buildheight.js(lang=${lang},cacheVersion=${contentCacheVersion})}"></script>
-<script type="text/javascript" th:src="@{/js/{lang}/anals-landscapedirect.js(lang=${lang},cacheVersion=${contentCacheVersion})}"></script>
-<script type="text/javascript" th:src="@{/js/{lang}/anals-landscape.js(lang=${lang},cacheVersion=${contentCacheVersion})}"></script>
-<script type="text/javascript" th:src="@{/js/{lang}/anals-landscape-free.js(lang=${lang},cacheVersion=${contentCacheVersion})}"></script>
-<script type="text/javascript" th:src="@{/js/{lang}/anals-landscape-saved.js(lang=${lang},cacheVersion=${contentCacheVersion})}"></script>
-<script type="text/javascript" th:src="@{/js/{lang}/anals-landscape-view.js(lang=${lang},cacheVersion=${contentCacheVersion})}"></script>
-<script type="text/javascript" th:src="@{/js/{lang}/anals-landscape-height.js(lang=${lang},cacheVersion=${contentCacheVersion})}"></script>
-<script type="text/javascript" th:src="@{/js/{lang}/anals-landscapediff.js(lang=${lang},cacheVersion=${contentCacheVersion})}"></script>
-<script type="text/javascript" th:src="@{/js/{lang}/anals-sunshine.js(lang=${lang},cacheVersion=${contentCacheVersion})}"></script>
-
-<script type="text/javascript" th:src="@{/js/{lang}/anals-buildheight.js(lang=${lang},cacheVersion=${contentCacheVersion})}"></script>
-<!--<script type="text/javascript" th:src="@{/js/{lang}/anals-landscape.js(lang=${lang},cacheVersion=${contentCacheVersion})}"></script>-->
-<!--//DS lib-->
-
 <script type="text/javascript" th:src="@{/js/{lang}/layer.js(lang=${lang},cacheVersion=${contentCacheVersion})}"></script>
 <script type="text/javascript" th:src="@{/js/{lang}/map-data-controll.js(lang=${lang},cacheVersion=${contentCacheVersion})}"></script>
 <script type="text/javascript" th:src="@{/js/{lang}/map-init.js(lang=${lang},cacheVersion=${contentCacheVersion})}"></script>
 <script type="text/javascript" th:src="@{/js/{lang}/issue-controller.js(lang=${lang},cacheVersion=${contentCacheVersion})}"></script>
-<!--<script type="text/javascript" th:src="@{/js/{lang}/map-data.js(lang=${lang},cacheVersion=${contentCacheVersion})}"></script>-->
-<!--<script type="text/javascript" th:src="@{/js/{lang}/map-data-group.js(lang=${lang},cacheVersion=${contentCacheVersion})}"></script>-->
 <script type="text/javascript" th:src="@{/js/{lang}/map-data-search.js(lang=${lang},cacheVersion=${contentCacheVersion})}"></script>
 <script type="text/javascript" th:src="@{/js/{lang}/drawer/line-drawer.js(lang=${lang},cacheVersion=${contentCacheVersion})}"></script>
 <script type="text/javascript" th:src="@{/js/{lang}/drawer/polygon-drawer.js(lang=${lang},cacheVersion=${contentCacheVersion})}"></script>
