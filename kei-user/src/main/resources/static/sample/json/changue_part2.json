@@ -1,0 +1,1214 @@
+{
+    "dataGroupKey": "changue_part",
+    "oldDataGroupKey": null,
+    "dataGroupName": "창의",
+    "dataGroupPath": "infra/data/changue_part",
+    "dataGroupTarget": "admin",
+    "sharing": "public",
+    "userId": "admin",
+    "userName": null,
+    "ancestor": 1,
+    "parent": 0,
+    "depth": 1,
+    "viewOrder": 2,
+    "children": 0,
+    "basic": false,
+    "available": true,
+    "tiling": true,
+    "dataCount": 0,
+    "location": null,
+    "altitude": null,
+    "duration": null,
+    "locationUpdateType": "auto",
+    "metainfo": "{\"isPhysical\": false}",
+    "attributes": {
+      "isPhysical": false,
+      "nodeType": "root",
+      "projectType": "3ds",
+      "specularLighting": true
+    },
+    "datas": [
+    {
+          "metainfo": {
+              "isPhysical": true,"heightReference":"clampToGround",
+              "nodeType": "default",
+              "flipYTexCoords": true
+          },
+          "children": [],
+          "dataKey": "block_0",
+          "dataName": "학교",
+          "label" : "학교",
+          "labelTemplate" : "파랑두글자",
+          "mappingType":"origin",
+          "longitude": 126.99518303264219,
+          "latitude": 37.43147565782469,
+          "height": 0.000000,
+          "heading": 0.000000,
+          "pitch": 0.000000,
+          "roll": 0.000000
+      }
+      ,
+      {
+          "metainfo": {
+              "isPhysical": true,"heightReference":"clampToGround",
+              "nodeType": "default",
+              "flipYTexCoords": true
+          },
+          "children": [],
+          "dataKey": "block_1",
+          "dataName": "block_1",
+          "mappingType":"origin",
+          "longitude": 126.99515384317286,
+          "latitude": 37.43149152695762,
+          "height": 0.000000,
+          "heading": 0.000000,
+          "pitch": 0.000000,
+          "roll": 0.000000
+      }
+      ,
+      {
+          "metainfo": {
+              "isPhysical": true,"heightReference":"clampToGround",
+              "nodeType": "default",
+              "flipYTexCoords": true
+          },
+          "children": [],
+          "dataKey": "block_10",
+          "dataName": "앵커기업",
+          "label" : "앵커기업",
+          "labelTemplate" : "보라네글자",
+          "mappingType":"origin",
+          "longitude": 126.99512128891877,
+          "latitude": 37.431555811854395,
+          "height": 0.000000,
+          "heading": 0.000000,
+          "pitch": 0.000000,
+          "roll": 0.000000
+      }
+      ,
+      {
+          "metainfo": {
+              "isPhysical": true,"heightReference":"clampToGround",
+              "nodeType": "default",
+              "flipYTexCoords": true
+          },
+          "children": [],
+          "dataKey": "block_11",
+          "dataName": "앵커기업",
+          "label" : "앵커기업",
+          "labelTemplate" : "보라네글자",
+          "mappingType":"origin",
+          "longitude": 126.99512128891877,
+          "latitude": 37.431555811854395,
+          "height": 0.000000,
+          "heading": 0.000000,
+          "pitch": 0.000000,
+          "roll": 0.000000
+      }
+      ,
+      {
+          "metainfo": {
+              "isPhysical": true,"heightReference":"clampToGround",
+              "nodeType": "default",
+              "flipYTexCoords": true
+          },
+          "children": [],
+          "dataKey": "block_12",
+          "dataName": "청년발전소",
+          "label" : "청년발전소",
+          "labelTemplate" : "보라다섯글자",
+          "mappingType":"origin",
+          "longitude": 126.99512128891877,
+          "latitude": 37.431555811854395,
+          "height": 0.000000,
+          "heading": 0.000000,
+          "pitch": 0.000000,
+          "roll": 0.000000
+      }
+      ,
+      {
+          "metainfo": {
+              "isPhysical": true,"heightReference":"clampToGround",
+              "nodeType": "default",
+              "flipYTexCoords": true
+          },
+          "children": [],
+          "dataKey": "block_13",
+          "dataName": "스타트업",
+          "label" : "스타트업",
+          "labelTemplate" : "보라네글자",
+          "mappingType":"origin",
+          "longitude": 126.99512128891877,
+          "latitude": 37.431555811854395,
+          "height": 0.000000,
+          "heading": 0.000000,
+          "pitch": 0.000000,
+          "roll": 0.000000
+      }
+      ,
+      {
+          "metainfo": {
+              "isPhysical": true,"heightReference":"clampToGround",
+              "nodeType": "default",
+              "flipYTexCoords": true
+          },
+          "children": [],
+          "dataKey": "block_14",
+          "dataName": "대학(도시캠퍼스)",
+          "label" : "대학(도시캠퍼스)",
+          "labelTemplate" : "보라아홉글자",
+          "mappingType":"origin",
+          "longitude": 126.99512128891877,
+          "latitude": 37.431555811854395,
+          "height": 0.000000,
+          "heading": 0.000000,
+          "pitch": 0.000000,
+          "roll": 0.000000
+      }
+      ,
+      {
+          "metainfo": {
+              "isPhysical": true,"heightReference":"clampToGround",
+              "nodeType": "default",
+              "flipYTexCoords": true
+          },
+          "children": [],
+          "dataKey": "block_15",
+          "dataName": "block_15",
+          "mappingType":"origin",
+          "longitude": 126.99512128891877,
+          "latitude": 37.431555811854395,
+          "height": 0.000000,
+          "heading": 0.000000,
+          "pitch": 0.000000,
+          "roll": 0.000000
+      }
+      ,
+      {
+          "metainfo": {
+              "isPhysical": true,"heightReference":"clampToGround",
+              "nodeType": "default",
+              "flipYTexCoords": true
+          },
+          "children": [],
+          "dataKey": "block_16",
+          "dataName": "신혼부부",
+          "label" : "신혼부부",
+          "labelTemplate" : "회색네글자",
+          "mappingType":"origin",
+          "longitude": 126.99512128891877,
+          "latitude": 37.431555811854395,
+          "height": 0.000000,
+          "heading": 0.000000,
+          "pitch": 0.000000,
+          "roll": 0.000000
+      }
+      ,
+      {
+          "metainfo": {
+              "isPhysical": true,"heightReference":"clampToGround",
+              "nodeType": "default",
+              "flipYTexCoords": true
+          },
+          "children": [],
+          "dataKey": "block_17",
+          "dataName": "block_17",
+          "mappingType":"origin",
+          "longitude": 126.99512128891877,
+          "latitude": 37.431555811854395,
+          "height": 0.000000,
+          "heading": 0.000000,
+          "pitch": 0.000000,
+          "roll": 0.000000
+      }
+      ,
+      {
+          "metainfo": {
+              "isPhysical": true,"heightReference":"clampToGround",
+              "nodeType": "default",
+              "flipYTexCoords": true
+          },
+          "children": [],
+          "dataKey": "block_18",
+          "label" : "청년주택",
+          "labelTemplate" : "회색네글자",
+          "dataName": "청년주택",
+          "mappingType":"origin",
+          "longitude": 126.99512128891877,
+          "latitude": 37.431555811854395,
+          "height": 0.000000,
+          "heading": 0.000000,
+          "pitch": 0.000000,
+          "roll": 0.000000
+      }
+      ,
+      {
+          "metainfo": {
+              "isPhysical": true,"heightReference":"clampToGround",
+              "nodeType": "default",
+              "flipYTexCoords": true
+          },
+          "children": [],
+          "dataKey": "block_19",
+          "dataName": "실버주택",
+          "label" : "실버주택",
+          "labelTemplate" : "회색네글자",
+          "mappingType":"origin",
+          "longitude": 126.99512128891877,
+          "latitude": 37.431555811854395,
+          "height": 0.000000,
+          "heading": 0.000000,
+          "pitch": 0.000000,
+          "roll": 0.000000
+      }
+      ,
+      {
+          "metainfo": {
+              "isPhysical": true,"heightReference":"clampToGround",
+              "nodeType": "default",
+              "flipYTexCoords": true
+          },
+          "children": [],
+          "dataKey": "block_2",
+          "dataName": "block_2",
+          "mappingType":"origin",
+          "longitude": 126.99515384317286,
+          "latitude": 37.43149152695762,
+          "height": 0.000000,
+          "heading": 0.000000,
+          "pitch": 0.000000,
+          "roll": 0.000000
+      }
+      ,
+      {
+          "metainfo": {
+              "isPhysical": true,"heightReference":"clampToGround",
+              "nodeType": "default",
+              "flipYTexCoords": true
+          },
+          "children": [],
+          "dataKey": "block_20",
+          "dataName": "민간주택",
+          "label" : "민간주택",
+          "labelTemplate" : "회색네글자",
+          "mappingType":"origin",
+          "longitude": 126.99512128891877,
+          "latitude": 37.431555811854395,
+          "height": 0.000000,
+          "heading": 0.000000,
+          "pitch": 0.000000,
+          "roll": 0.000000
+      }
+      ,
+      {
+          "metainfo": {
+              "isPhysical": true,"heightReference":"clampToGround",
+              "nodeType": "default",
+              "flipYTexCoords": true
+          },
+          "children": [],
+          "dataKey": "block_21",
+          "dataName": "민간주택",
+          "label" : "민간주택",
+          "labelTemplate" : "회색네글자",
+          "mappingType":"origin",
+          "longitude": 126.99512128891877,
+          "latitude": 37.431555811854395,
+          "height": 0.000000,
+          "heading": 0.000000,
+          "pitch": 0.000000,
+          "roll": 0.000000
+      }
+      ,
+      {
+          "metainfo": {
+              "isPhysical": true,"heightReference":"clampToGround",
+              "nodeType": "default",
+              "flipYTexCoords": true
+          },
+          "children": [],
+          "dataKey": "block_22",
+          "dataName": "block_22",
+          "mappingType":"origin",
+          "longitude": 126.99512128891877,
+          "latitude": 37.431555811854395,
+          "height": 0.000000,
+          "heading": 0.000000,
+          "pitch": 0.000000,
+          "roll": 0.000000
+      }
+      ,
+      {
+          "metainfo": {
+              "isPhysical": true,"heightReference":"clampToGround",
+              "nodeType": "default",
+              "flipYTexCoords": true
+          },
+          "children": [],
+          "dataKey": "block_23",
+          "dataName": "block_23",
+          "mappingType":"origin",
+          "longitude": 126.99512128891877,
+          "latitude": 37.431555811854395,
+          "height": 0.000000,
+          "heading": 0.000000,
+          "pitch": 0.000000,
+          "roll": 0.000000
+      }
+      ,
+      {
+          "metainfo": {
+              "isPhysical": true,"heightReference":"clampToGround",
+              "nodeType": "default",
+              "flipYTexCoords": true
+          },
+          "children": [],
+          "dataKey": "block_24",
+          "dataName": "중소기업",
+          "label" : "중소기업",
+          "labelTemplate" : "보라네글자",
+          "mappingType":"origin",
+          "longitude": 126.99512128891877,
+          "latitude": 37.431555811854395,
+          "height": 0.000000,
+          "heading": 0.000000,
+          "pitch": 0.000000,
+          "roll": 0.000000
+      }
+      ,
+      {
+          "metainfo": {
+              "isPhysical": true,"heightReference":"clampToGround",
+              "nodeType": "default",
+              "flipYTexCoords": true
+          },
+          "children": [],
+          "dataKey": "block_25",
+          "dataName": "block_25",
+          "mappingType":"origin",
+          "longitude": 126.99512128891877,
+          "latitude": 37.431555811854395,
+          "height": 0.000000,
+          "heading": 0.000000,
+          "pitch": 0.000000,
+          "roll": 0.000000
+      }
+      ,
+      {
+          "metainfo": {
+              "isPhysical": true,"heightReference":"clampToGround",
+              "nodeType": "default",
+              "flipYTexCoords": true
+          },
+          "children": [],
+          "dataKey": "block_26",
+          "dataName": "block_26",
+          "mappingType":"origin",
+          "longitude": 126.99512128891877,
+          "latitude": 37.431555811854395,
+          "height": 0.000000,
+          "heading": 0.000000,
+          "pitch": 0.000000,
+          "roll": 0.000000
+      }
+      ,
+      {
+          "metainfo": {
+              "isPhysical": true,"heightReference":"clampToGround",
+              "nodeType": "default",
+              "flipYTexCoords": true
+          },
+          "children": [],
+          "dataKey": "block_27",
+          "dataName": "창업지원 및 커뮤니티시설",
+          "label" : "창업지원 및 커뮤니티시설",
+          "labelTemplate" : "녹색열세글자",
+          "mappingType":"boundingboxcenter",
+          "longitude": 127.00788365767917,
+          "latitude": 37.451293147371416,
+          "height": 0.000000,
+          "heading": 0.000000,
+          "pitch": 0.000000,
+          "roll": 0.000000
+      }
+      ,
+      {
+          "metainfo": {
+              "isPhysical": true,"heightReference":"clampToGround",
+              "nodeType": "default",
+              "flipYTexCoords": true
+          },
+          "children": [],
+          "dataKey": "block_28",
+          "dataName": "block_28",
+          "mappingType":"boundingboxcenter",
+          "longitude": 127.00774232073502,
+          "latitude": 37.451673134840824,
+          "height": 0.000000,
+          "heading": -180.000000,
+          "pitch": 0.000000,
+          "roll": 0.000000
+      }
+      ,
+      {
+          "metainfo": {
+              "isPhysical": true,"heightReference":"clampToGround",
+              "nodeType": "default",
+              "flipYTexCoords": true
+          },
+          "children": [],
+          "dataKey": "block_29",
+          "dataName": "퍼블릭마켓(세입자 + 사회적기업)",
+          "label" : "퍼블릭마켓(세입자 + 사회적기업)",
+          "labelTemplate" : "보라두줄열자",
+          "mappingType":"origin",
+          "longitude": 126.99512128891877,
+          "latitude": 37.431555811854395,
+          "height": 0.000000,
+          "heading": 0.000000,
+          "pitch": 0.000000,
+          "roll": 0.000000
+      }
+      ,
+      {
+          "metainfo": {
+              "isPhysical": true,"heightReference":"clampToGround",
+              "nodeType": "default",
+              "flipYTexCoords": true
+          },
+          "children": [],
+          "dataKey": "block_3",
+          "dataName": "block_3",
+          "mappingType":"origin",
+          "longitude": 126.99512128891877,
+          "latitude": 37.431555811854395,
+          "height": 0.000000,
+          "heading": 0.000000,
+          "pitch": 0.000000,
+          "roll": 0.000000
+      }
+      ,
+      {
+          "metainfo": {
+              "isPhysical": true,"heightReference":"clampToGround",
+              "nodeType": "default",
+              "flipYTexCoords": true
+          },
+          "children": [],
+          "dataKey": "block_30",
+          "dataName": "마을커뮤니티",
+          "label" : "마을커뮤니티",
+          "labelTemplate" : "보라여섯글자",
+          "mappingType":"origin",
+          "longitude": 126.99512128891877,
+          "latitude": 37.431555811854395,
+          "height": 0.000000,
+          "heading": 0.000000,
+          "pitch": 0.000000,
+          "roll": 0.000000
+      }
+      ,
+      {
+          "metainfo": {
+              "isPhysical": true,"heightReference":"clampToGround",
+              "nodeType": "default",
+              "flipYTexCoords": true
+          },
+          "children": [],
+          "dataKey": "block_31",
+          "dataName": "퍼블릭마켓(이주자)",
+          "label" : "퍼블릭마켓(이주자)",
+          "labelTemplate" : "보라두줄아홉자",
+          "mappingType":"origin",
+          "longitude": 126.99512128891877,
+          "latitude": 37.431555811854395,
+          "height": 0.000000,
+          "heading": 0.000000,
+          "pitch": 0.000000,
+          "roll": 0.000000
+      }
+      ,
+      {
+          "metainfo": {
+              "isPhysical": true,"heightReference":"relativeToGround",
+              "nodeType": "default",
+              "flipYTexCoords": true
+          },
+          "children": [],
+          "dataKey": "block_31_1",
+          "dataName": "block_31_1",
+          "mappingType":"origin",
+          "longitude": 126.99512128891877,
+          "latitude": 37.431555811854395,
+          "height": -30.000000,
+          "heading": 0.000000,
+          "pitch": 0.000000,
+          "roll": 0.000000
+      }
+      ,
+      {
+          "metainfo": {
+              "isPhysical": true,"heightReference":"clampToGround",
+              "nodeType": "default",
+              "flipYTexCoords": true
+          },
+          "children": [],
+          "dataKey": "block_32",
+          "dataName": "block_32",
+          "label" : "유치원",
+          "labelTemplate" : "파랑세글자",
+          "mappingType":"origin",
+          "longitude": 126.99515169071253,
+          "latitude": 37.43151116300366,
+          "height": 0.000000,
+          "heading": 0.000000,
+          "pitch": 0.000000,
+          "roll": 0.000000
+      }
+      ,
+      {
+          "metainfo": {
+              "isPhysical": true,"heightReference":"clampToGround",
+              "nodeType": "default",
+              "flipYTexCoords": true
+          },
+          "children": [],
+          "dataKey": "block_33",
+          "dataName": "스타트업",
+          "label" : "스타트업",
+          "labelTemplate" : "보라네글자",
+          "mappingType":"origin",
+          "longitude": 126.99512128891877,
+          "latitude": 37.431555811854395,
+          "height": 0.000000,
+          "heading": 0.000000,
+          "pitch": 0.000000,
+          "roll": 0.000000
+      }
+      ,
+      {
+          "metainfo": {
+              "isPhysical": true,"heightReference":"clampToGround",
+              "nodeType": "default",
+              "flipYTexCoords": true
+          },
+          "children": [],
+          "dataKey": "block_34",
+          "dataName": "block_34",
+          "mappingType":"origin",
+          "longitude": 126.99512128891877,
+          "latitude": 37.431555811854395,
+          "height": 0.000000,
+          "heading": 0.000000,
+          "pitch": 0.000000,
+          "roll": 0.000000
+      }
+      ,
+      {
+          "metainfo": {
+              "isPhysical": true,"heightReference":"clampToGround",
+              "nodeType": "default",
+              "flipYTexCoords": true
+          },
+          "children": [],
+          "dataKey": "block_35",
+          "dataName": "block_35",
+          "mappingType":"origin",
+          "longitude": 126.99512128891877,
+          "latitude": 37.431555811854395,
+          "height": 0.000000,
+          "heading": 0.000000,
+          "pitch": 0.000000,
+          "roll": 0.000000
+      }
+      ,
+      {
+          "metainfo": {
+              "isPhysical": true,"heightReference":"clampToGround",
+              "nodeType": "default",
+              "flipYTexCoords": true
+          },
+          "children": [],
+          "dataKey": "block_36",
+          "dataName": "block_36",
+          "mappingType":"origin",
+          "longitude": 126.99512128891877,
+          "latitude": 37.431555811854395,
+          "height": 0.000000,
+          "heading": 0.000000,
+          "pitch": 0.000000,
+          "roll": 0.000000
+      }
+      ,
+      {
+          "metainfo": {
+              "isPhysical": true,"heightReference":"clampToGround",
+              "nodeType": "default",
+              "flipYTexCoords": true
+          },
+          "children": [],
+          "dataKey": "block_37",
+          "dataName": "이주자택지(주거전용)",
+          "label" : "이주자택지(주거전용)",
+          "labelTemplate" : "노랑열한글자",
+          "mappingType":"origin",
+          "longitude": 126.99512128891877,
+          "latitude": 37.431555811854395,
+          "height": 0.000000,
+          "heading": 0.000000,
+          "pitch": 0.000000,
+          "roll": 0.000000
+      }
+      ,
+      {
+          "metainfo": {
+              "isPhysical": true,"heightReference":"clampToGround",
+              "nodeType": "default",
+              "flipYTexCoords": true
+          },
+          "children": [],
+          "dataKey": "block_38",
+          "dataName": "block_38",
+          "mappingType":"origin",
+          "longitude": 126.99512128891877,
+          "latitude": 37.431555811854395,
+          "height": 0.000000,
+          "heading": 0.000000,
+          "pitch": 0.000000,
+          "roll": 0.000000
+      }
+      ,
+      {
+          "metainfo": {
+              "isPhysical": true,"heightReference":"clampToGround",
+              "nodeType": "default",
+              "flipYTexCoords": true
+          },
+          "children": [],
+          "dataKey": "block_39",
+          "dataName": "block_39",
+          "mappingType":"origin",
+          "longitude": 126.99512128891877,
+          "latitude": 37.431555811854395,
+          "height": 0.000000,
+          "heading": 0.000000,
+          "pitch": 0.000000,
+          "roll": 0.000000
+      }
+      ,
+      {
+          "metainfo": {
+              "isPhysical": true,"heightReference":"clampToGround",
+              "nodeType": "default",
+              "flipYTexCoords": true
+          },
+          "children": [],
+          "dataKey": "block_4",
+          "dataName": "block_4",
+          "mappingType":"origin",
+          "longitude": 126.99512128891877,
+          "latitude": 37.431555811854395,
+          "height": 0.000000,
+          "heading": 0.000000,
+          "pitch": 0.000000,
+          "roll": 0.000000
+      }
+      ,
+      {
+          "metainfo": {
+              "isPhysical": true,"heightReference":"clampToGround",
+              "nodeType": "default",
+              "flipYTexCoords": true
+          },
+          "children": [],
+          "dataKey": "block_40",
+          "dataName": "block_40",
+          "mappingType":"origin",
+          "longitude": 126.99512128891877,
+          "latitude": 37.431555811854395,
+          "height": 0.000000,
+          "heading": 0.000000,
+          "pitch": 0.000000,
+          "roll": 0.000000
+      }
+      ,
+      {
+          "metainfo": {
+              "isPhysical": true,"heightReference":"clampToGround",
+              "nodeType": "default",
+              "flipYTexCoords": true
+          },
+          "children": [],
+          "dataKey": "block_41",
+          "dataName": "block_41",
+          "mappingType":"origin",
+          "longitude": 126.99512128891877,
+          "latitude": 37.431555811854395,
+          "height": 0.000000,
+          "heading": 0.000000,
+          "pitch": 0.000000,
+          "roll": 0.000000
+      }
+      ,
+      {
+          "metainfo": {
+              "isPhysical": true,"heightReference":"clampToGround",
+              "nodeType": "default",
+              "flipYTexCoords": true
+          },
+          "children": [],
+          "dataKey": "block_42",
+          "dataName": "block_42",
+          "mappingType":"origin",
+          "longitude": 126.99512128891877,
+          "latitude": 37.431555811854395,
+          "height": 0.000000,
+          "heading": 0.000000,
+          "pitch": 0.000000,
+          "roll": 0.000000
+      }
+      ,
+      {
+          "metainfo": {
+              "isPhysical": true,"heightReference":"clampToGround",
+              "nodeType": "default",
+              "flipYTexCoords": true
+          },
+          "children": [],
+          "dataKey": "block_43",
+          "dataName": "block_43",
+          "mappingType":"origin",
+          "longitude": 126.99512128891877,
+          "latitude": 37.431555811854395,
+          "height": 0.000000,
+          "heading": 0.000000,
+          "pitch": 0.000000,
+          "roll": 0.000000
+      }
+      ,
+      {
+          "metainfo": {
+              "isPhysical": true,"heightReference":"clampToGround",
+              "nodeType": "default",
+              "flipYTexCoords": true
+          },
+          "children": [],
+          "dataKey": "block_44",
+          "dataName": "block_44",
+          "mappingType":"origin",
+          "longitude": 126.99512128891877,
+          "latitude": 37.431555811854395,
+          "height": 0.000000,
+          "heading": 0.000000,
+          "pitch": 0.000000,
+          "roll": 0.000000
+      }
+      ,
+      {
+          "metainfo": {
+              "isPhysical": true,"heightReference":"clampToGround",
+              "nodeType": "default",
+              "flipYTexCoords": true
+          },
+          "children": [],
+          "dataKey": "block_45",
+          "dataName": "block_45",
+          "mappingType":"origin",
+          "longitude": 126.99512128891877,
+          "latitude": 37.431555811854395,
+          "height": 0.000000,
+          "heading": 0.000000,
+          "pitch": 0.000000,
+          "roll": 0.000000
+      }
+      ,
+      {
+          "metainfo": {
+              "isPhysical": true,"heightReference":"clampToGround",
+              "nodeType": "default",
+              "flipYTexCoords": true
+          },
+          "children": [],
+          "dataKey": "block_46",
+          "dataName": "block_46",
+          "mappingType":"origin",
+          "longitude": 126.99512128891877,
+          "latitude": 37.431555811854395,
+          "height": 0.000000,
+          "heading": 0.000000,
+          "pitch": 0.000000,
+          "roll": 0.000000
+      }
+      ,
+      {
+          "metainfo": {
+              "isPhysical": true,"heightReference":"clampToGround",
+              "nodeType": "default",
+              "flipYTexCoords": true
+          },
+          "children": [],
+          "dataKey": "block_47",
+          "dataName": "block_47",
+          "mappingType":"origin",
+          "longitude": 126.99512128891877,
+          "latitude": 37.431555811854395,
+          "height": 0.000000,
+          "heading": 0.000000,
+          "pitch": 0.000000,
+          "roll": 0.000000
+      }
+      ,
+      {
+          "metainfo": {
+              "isPhysical": true,"heightReference":"clampToGround",
+              "nodeType": "default",
+              "flipYTexCoords": true
+          },
+          "children": [],
+          "dataKey": "block_48",
+          "dataName": "block_48",
+          "mappingType":"origin",
+          "longitude": 126.99512128891877,
+          "latitude": 37.431555811854395,
+          "height": 0.000000,
+          "heading": 0.000000,
+          "pitch": 0.000000,
+          "roll": 0.000000
+      }
+      ,
+      {
+          "metainfo": {
+              "isPhysical": true,"heightReference":"clampToGround",
+              "nodeType": "default",
+              "flipYTexCoords": true
+          },
+          "children": [],
+          "dataKey": "block_49",
+          "dataName": "block_49",
+          "mappingType":"origin",
+          "longitude": 126.99512128891877,
+          "latitude": 37.431555811854395,
+          "height": 0.000000,
+          "heading": 0.000000,
+          "pitch": 0.000000,
+          "roll": 0.000000
+      }
+      ,
+      {
+          "metainfo": {
+              "isPhysical": true,"heightReference":"clampToGround",
+              "nodeType": "default",
+              "flipYTexCoords": true
+          },
+          "children": [],
+          "dataKey": "block_5",
+          "dataName": "block_5",
+          "mappingType":"origin",
+          "longitude": 126.99514124956711,
+          "latitude": 37.43151316264626,
+          "height": 0.000000,
+          "heading": 0.000000,
+          "pitch": 0.000000,
+          "roll": 0.000000
+      }
+      ,
+      {
+          "metainfo": {
+              "isPhysical": true,"heightReference":"clampToGround",
+              "nodeType": "default",
+              "flipYTexCoords": true
+          },
+          "children": [],
+          "dataKey": "block_50",
+          "dataName": "block_50",
+          "mappingType":"origin",
+          "longitude": 126.99512128891877,
+          "latitude": 37.431555811854395,
+          "height": 0.000000,
+          "heading": 0.000000,
+          "pitch": 0.000000,
+          "roll": 0.000000
+      }
+      ,
+      {
+          "metainfo": {
+              "isPhysical": true,"heightReference":"clampToGround",
+              "nodeType": "default",
+              "flipYTexCoords": true
+          },
+          "children": [],
+          "dataKey": "block_51",
+          "dataName": "block_51",
+          "mappingType":"origin",
+          "longitude": 126.99512128891877,
+          "latitude": 37.431555811854395,
+          "height": 0.000000,
+          "heading": 0.000000,
+          "pitch": 0.000000,
+          "roll": 0.000000
+      }
+      ,
+      {
+          "metainfo": {
+              "isPhysical": true,"heightReference":"clampToGround",
+              "nodeType": "default",
+              "flipYTexCoords": true
+          },
+          "children": [],
+          "dataKey": "block_52",
+          "dataName": "block_52",
+          "mappingType":"origin",
+          "longitude": 126.99512128891877,
+          "latitude": 37.431555811854395,
+          "height": 0.000000,
+          "heading": 0.000000,
+          "pitch": 0.000000,
+          "roll": 0.000000
+      }
+      ,
+      {
+          "metainfo": {
+              "isPhysical": true,"heightReference":"clampToGround",
+              "nodeType": "default",
+              "flipYTexCoords": true
+          },
+          "children": [],
+          "dataKey": "block_53",
+          "dataName": "block_53",
+          "mappingType":"origin",
+          "longitude": 126.99512128891877,
+          "latitude": 37.431555811854395,
+          "height": 0.000000,
+          "heading": 0.000000,
+          "pitch": 0.000000,
+          "roll": 0.000000
+      }
+      ,
+      {
+          "metainfo": {
+              "isPhysical": true,"heightReference":"clampToGround",
+              "nodeType": "default",
+              "flipYTexCoords": true
+          },
+          "children": [],
+          "dataKey": "block_6",
+          "dataName": "앵커기업",
+          "label" : "앵커기업",
+          "labelTemplate" : "보라네글자",
+          "mappingType":"origin",
+          "longitude": 126.99512128891877,
+          "latitude": 37.431555811854395,
+          "height": 0.000000,
+          "heading": 0.000000,
+          "pitch": 0.000000,
+          "roll": 0.000000
+      }
+      ,
+      {
+          "metainfo": {
+              "isPhysical": true,"heightReference":"clampToGround",
+              "nodeType": "default",
+              "flipYTexCoords": true
+          },
+          "children": [],
+          "dataKey": "block_7",
+          "dataName": "중소기업",
+          "label" : "중소기업",
+          "labelTemplate" : "보라네글자",
+          "mappingType":"origin",
+          "longitude": 126.99512128891877,
+          "latitude": 37.431555811854395,
+          "height": 0.000000,
+          "heading": 0.000000,
+          "pitch": 0.000000,
+          "roll": 0.000000
+      }
+      ,
+      {
+          "metainfo": {
+              "isPhysical": true,"heightReference":"clampToGround",
+              "nodeType": "default",
+              "flipYTexCoords": true
+          },
+          "children": [],
+          "dataKey": "block_8",
+          "dataName": "R&D",
+          "label" : "R&D",
+          "labelTemplate" : "보라세글자",
+          "mappingType":"origin",
+          "longitude": 126.99512128891877,
+          "latitude": 37.431555811854395,
+          "height": 0.000000,
+          "heading": 0.000000,
+          "pitch": 0.000000,
+          "roll": 0.000000
+      }
+      ,
+      {
+          "metainfo": {
+              "isPhysical": true,"heightReference":"clampToGround",
+              "nodeType": "default",
+              "flipYTexCoords": true
+          },
+          "children": [],
+          "dataKey": "block_9",
+          "dataName": "중견기업",
+          "label" : "중견기업",
+          "labelTemplate" : "보라네글자",
+          "mappingType":"origin",
+          "longitude": 126.99512128891877,
+          "latitude": 37.431555811854395,
+          "height": 0.000000,
+          "heading": 0.000000,
+          "pitch": 0.000000,
+          "roll": 0.000000
+      }
+      ,
+      {
+          "metainfo": {
+              "isPhysical": true,"heightReference":"clampToGround",
+              "nodeType": "default",
+              "flipYTexCoords": true
+          },
+          "children": [],
+          "dataKey": "bridge_0",
+          "dataName": "bridge_0",
+          "mappingType":"origin",
+          "longitude": 126.99512128891877,
+          "latitude": 37.431555811854395,
+          "height": 10.000000,
+          "heading": 0.000000,
+          "pitch": 0.000000,
+          "roll": 0.000000
+      }
+      ,
+      {
+          "metainfo": {
+              "isPhysical": true,"heightReference":"clampToGround",
+              "nodeType": "default",
+              "flipYTexCoords": true
+          },
+          "children": [],
+          "dataKey": "bridge_1",
+          "dataName": "의료/커뮤니티케어",
+          "label" : "의료/커뮤니티케어",
+          "labelTemplate" : "파랑아홉글자",
+          "mappingType":"origin",
+          "longitude": 126.99512128891877,
+          "latitude": 37.431555811854395,
+          "height": 10.000000,
+          "heading": 0.000000,
+          "pitch": 0.000000,
+          "roll": 0.000000
+      }
+      ,
+      {
+          "metainfo": {
+              "isPhysical": true,"heightReference":"clampToGround",
+              "nodeType": "default",
+              "flipYTexCoords": true
+          },
+          "children": [],
+          "dataKey": "bridge_2",
+          "dataName": "보육센터",
+          "label" : "보육센터",
+          "labelTemplate" : "노랑네글자",
+          "mappingType":"origin",
+          "longitude": 126.99512128891877,
+          "latitude": 37.431555811854395,
+          "height": 10.000000,
+          "heading": 0.000000,
+          "pitch": 0.000000,
+          "roll": 0.000000
+      }
+      ,
+      {
+          "metainfo": {
+              "isPhysical": true,"heightReference":"relativeToGround",
+              "nodeType": "default",
+              "flipYTexCoords": true
+          },
+          "children": [],
+          "dataKey": "bridge_3",
+          "dataName": "bridge_3",
+          "mappingType":"origin",
+          "longitude": 126.99512128891877,
+          "latitude": 37.431555811854395,
+          "height": 10.000000,
+          "heading": 0.000000,
+          "pitch": 0.000000,
+          "roll": 0.000000
+      }
+      ,
+      {
+          "metainfo": {
+              "isPhysical": true,"heightReference":"relativeToGround",
+              "nodeType": "default",
+              "flipYTexCoords": true
+          },
+          "children": [],
+          "dataKey": "bridge_4",
+          "dataName": "bridge_4",
+          "mappingType":"origin",
+          "longitude": 126.99512128891877,
+          "latitude": 37.431555811854395,
+          "height": 10.000000,
+          "heading": 0.000000,
+          "pitch": 0.000000,
+          "roll": 0.000000
+      }
+      ,
+      {
+          "metainfo": {
+              "isPhysical": true,"heightReference":"relativeToGround",
+              "nodeType": "default",
+              "flipYTexCoords": true
+          },
+          "children": [],
+          "dataKey": "bridge_5",
+          "dataName": "bridge_5",
+          "mappingType":"origin",
+          "longitude": 126.99512128891877,
+          "latitude": 37.431555811854395,
+          "height": 10.000000,
+          "heading": 0.000000,
+          "pitch": 0.000000,
+          "roll": 0.000000
+      }
+      ,
+      {
+          "metainfo": {
+              "isPhysical": true,"heightReference":"relativeToGround",
+              "nodeType": "default",
+              "flipYTexCoords": true
+          },
+          "children": [],
+          "dataKey": "bridge_6",
+          "dataName": "bridge_6",
+          "mappingType":"origin",
+          "longitude": 126.99512128891877,
+          "latitude": 37.431555811854395,
+          "height": 10.000000,
+          "heading": 0.000000,
+          "pitch": 0.000000,
+          "roll": 0.000000
+      }
+      ,
+      {
+          "metainfo": {
+              "isPhysical": true,"heightReference":"relativeToGround",
+              "nodeType": "default",
+              "flipYTexCoords": true
+          },
+          "children": [],
+          "dataKey": "bridge_7",
+          "dataName": "bridge_7",
+          "mappingType":"origin",
+          "longitude": 126.99512128891877,
+          "latitude": 37.431555811854395,
+          "height": 10.000000,
+          "heading": 0.000000,
+          "pitch": 0.000000,
+          "roll": 0.000000 }
+  ]
+}

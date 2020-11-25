@@ -1,0 +1,35 @@
+{
+   "attributes":{
+      "isPhysical":false,
+      "nodeType":"root",
+      "projectType":"workshop",
+      "specularLighting":true
+   },
+   "children":[
+      {
+         "attributes":{
+            "isPhysical":true,
+            "nodeType":"daejeon",
+            "flipYTexCoords":true
+         },
+         "children":[
+            
+         ],
+         "data_key": "site",
+			"data_name": "site",
+		    "mapping_type":"origin",
+		    "longitude": 126.755384,
+		    "latitude": 37.556822,
+		    "height": 20.002050,
+         "heading":0,
+         "pitch":0,
+         "roll":0
+      }
+   ],
+   "parent":0,
+   "depth":1,
+   "view_order":2,
+   "data_key": "infra/demo/IncheonGayang_Mirae_site",
+	"data_name": "IncheonGayang_Mirae_site",
+   "mapping_type":"origin"
+}

@@ -1,0 +1,130 @@
+{
+	"파랑두글자" :  {
+              "background" : true,
+              "backgroundSize" : [60,22],
+              "backgroundFillColor" : "rgba(68, 114, 196, 1.0)",
+              "backgroundStrokeColor" : "rgba(205, 211, 222, 1.0)",
+              "backgroundOffset" : [-30, -22],
+              "font" : "16px Arial",
+              "textOffset" : [0, -5]
+	},
+	"파랑세글자" :  {
+              "background" : true,
+              "backgroundSize" : [70,22],
+              "backgroundFillColor" : "rgba(68, 114, 196, 1.0)",
+              "backgroundStrokeColor" : "rgba(205, 211, 222, 1.0)",
+              "backgroundOffset" :  [-30, -22],
+			  "font" : "16px Arial",
+			  "textOffset" : [5, -5]
+	},
+	"보라세글자" : {
+	  "background" : true,
+	  "backgroundSize" : [70,22],
+	  "backgroundFillColor" : "rgba(112, 48, 160, 1.0)",
+	  "backgroundStrokeColor" : "rgba(225, 225, 225, 1.0)",
+	  "backgroundOffset" :  [-30, -22],
+	  "font" : "16px Arial",
+	  "textOffset" : [5, -5]
+  },
+	"보라네글자" : {
+		  "background" : true,
+		  "backgroundSize" : [90,22],
+		  "backgroundFillColor" : "rgba(112, 48, 160, 1.0)",
+		  "backgroundStrokeColor" : "rgba(225, 225, 225, 1.0)",
+		  "backgroundOffset" :  [-40, -17],
+		  "font" : "16px Arial",
+		  "textOffset" : [5, 0]
+    },
+    "노랑네글자" : {
+	  "background" : true,
+	  "backgroundSize" : [90,22],
+	  "backgroundFillColor" : "rgba(255, 192, 0, 1.0)",
+	  "backgroundStrokeColor" : "rgba(224, 219, 202, 1.0)",
+	  "backgroundOffset" :  [-40, -22],
+	  "font" : "16px Arial",
+	  "textOffset" : [5, -5]
+  },
+   "회색네글자" : {
+	  "background" : true,
+	  "backgroundSize" : [90,22],
+	  "backgroundFillColor" : "rgba(127, 127, 127, 1.0)",
+	  "backgroundStrokeColor" : "rgba(190, 190, 190, 1.0)",
+	  "backgroundOffset" :  [-40, -22],
+	  "font" : "16px Arial",
+	  "textOffset" : [5, -5]
+  },
+	"보라다섯글자" : {
+		  "background" : true,
+		  "backgroundSize" : [110,22],
+		  "backgroundFillColor" : "rgba(112, 48, 160, 1.0)",
+		  "backgroundStrokeColor" : "rgba(225, 225, 225, 1.0)",
+		  "backgroundOffset" :  [-40, -22],
+		  "font" : "16px Arial",
+		  "textOffset" : [15, -5]
+    },
+    "보라여섯글자" : {
+	  "background" : true,
+	  "backgroundSize" : [125,22],
+	  "backgroundFillColor" : "rgba(153, 75, 22, 1.0)",
+	  "backgroundStrokeColor" : "rgba(225, 225, 225, 1.0)",
+	  "backgroundOffset" :  [-40, -22],
+	  "font" : "16px Arial",
+	  "textOffset" : [25, -5]
+  },
+	"보라아홉글자" : {
+	  "background" : true,
+	  "backgroundSize" : [150,22],
+	  "backgroundFillColor" : "rgba(112, 48, 160, 1.0)",
+	  "backgroundStrokeColor" : "rgba(225, 225, 225, 1.0)",
+	  "backgroundOffset" : [-45, -24],
+	  "font" : "16px Arial",
+	  "textOffset" : [30, -5]
+  },
+ 	"파랑아홉글자" : {
+	  "background" : true,
+	  "backgroundSize" : [150,22],
+	  "backgroundFillColor" : "rgba(68, 114, 196, 1.0)",
+	  "backgroundStrokeColor" : "rgba(205, 211, 222, 1.0)",
+	  "backgroundOffset" : [-35, 18],
+	  "font" : "16px Arial",
+	  "textOffset" : [38, 35]
+  },
+  
+  "보라두줄아홉자" : {
+	  "background" : true,
+	  "backgroundSize" : [165,22],
+	  "backgroundFillColor" : "rgba(153, 75, 22, 1.0)",
+	  "backgroundStrokeColor" : "rgba(225, 225, 225, 1.0)",
+	  "backgroundOffset" : [-40, 18],
+	  "font" : "16px Arial",
+	  "textOffset" : [40, 35]
+  },
+  "노랑열한글자" : {
+	  "background" : true,
+	  "backgroundSize" : [170,22],
+	  "backgroundFillColor" : "rgba(255, 192, 0, 1.0)",
+	  "backgroundStrokeColor" : "rgba(224, 219, 202, 1.0)",
+	  "backgroundOffset" : [-100, -22],
+	  "font" : "16px Arial",
+	  "textOffset" : [-20, -5]
+  },
+  "녹색열세글자" : {
+      "background" : true,
+      "backgroundSize" : [200,22],
+      "backgroundFillColor" : "rgba(112, 173, 71, 1.0)",
+      "backgroundStrokeColor" : "rgba(190, 190, 190, 1.0)",
+      "backgroundOffset" : [-50, -24],
+      "font" : "16px Arial",
+      "textOffset" : [50, -5]
+  },
+  "보라두줄열자" : {
+	  "background" : true,
+	  "backgroundSize" : [250,22],
+	  "backgroundFillColor" : "rgba(153, 75, 22, 1.0)",
+	  "backgroundStrokeColor" : "rgba(225, 225, 225, 1.0)",
+	  "backgroundOffset" :  [-50, -24],
+	  "font" : "16px Arial",
+	  "textOffset" : [75, -5]
+  }
+}
+	  

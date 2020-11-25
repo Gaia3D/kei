@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html th:lang="${accessibility}" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+<meta charset="utf-8">
+<meta name="referrer" content="origin">
+<meta name="viewport" content="width=device-width">
+<meta name="robots" content="index,nofollow" />
+<title>공지사항 | KEI</title>
+<link rel="stylesheet" th:href="@{/css/{lang}/font/font.css(lang=${lang}, cacheVersion=${contentCacheVersion})}" />
+<link rel="stylesheet" th:href="@{/images/{lang}/icon/glyph/glyphicon.css(lang=${lang}, cacheVersion=${contentCacheVersion})}" />
+<link rel="stylesheet" th:href="@{/externlib/normalize/normalize.min.css(cacheVersion=${contentCacheVersion})}" />
+<link rel="stylesheet" th:href="@{/externlib/jquery-ui-1.12.1/jquery-ui.min.css(cacheVersion=${contentCacheVersion})}" />
+<link rel="stylesheet" th:href="@{/css/{lang}/admin-style.css(lang=${lang}, cacheVersion=${contentCacheVersion})}" />
+<script type="text/javascript" th:src="@{/externlib/jquery-3.3.1/jquery.min.js(cacheVersion=${contentCacheVersion})}"></script>
+<script type="text/javascript" th:src="@{/externlib/jquery-ui-1.12.1/jquery-ui.min.js(cacheVersion=${contentCacheVersion})}"></script>
+<script type="text/javascript" th:src="@{/externlib/ol45/ol.js(cacheVersion=${contentCacheVersion})}"></script>
+<script type="text/javascript" th:src="@{/js/{lang}/map-view.js(lang=${lang}, cacheVersion=${contentCacheVersion})}"></script>
+
+<style>
+#boardButtonArea {
+	padding-top: 20px;
+}
+</style>
+</head>
+<body>
+	<div style="height: 100%;"></div>
+	<div class="page-content">
+		<div class="board-contents">
+			<form id="comment" th:object="${comment}" method="post" th:action="@{#}" onsubmit="return false;">
+				<input type="hidden" name="boardNoticeId" th:value="${boardNoticeComment.boardNoticeId}" />
+				<input type="hidden" name="ancestor" th:value="${boardNoticeComment.ancestor}" />
+				<input type="hidden" name="depth" th:value="${boardNoticeComment.depth}" />
+				<input type="hidden" name="boardNoticeCommentId" th:value="${boardNoticeComment.boardNoticeCommentId}" />
+				<table class="input-table scope-row">
+					<col class="col-label" />
+					<tr>
+						<th class="col-label" scope="row">
+							<label>내용</label>
+						</th>
+					</tr>
+					<tr>
+						<td class="col-key">
+							<textarea name="content" cols="30" rows="5"></textarea>
+						</td>
+					</tr>
+				</table>
+			</form>
+		</div>
+	</div>
+	<ul id="boardButtonArea">
+		<li id="uploadBoardButton" class="onArea">
+			<div class="button-group">
+				<div class="center-buttons">
+					<a class="button" th:onclick="insertMoreComment()">등록</a> 
+					<a class="button" onclick="closeWindow()">닫기</a>
+				</div>
+			</div>
+		</li>
+	</ul>
+</body>
+<script th:inline="javascript">
+	function insertMoreComment() {
+		/* if($("#content").val()==null || $("#content").val()==""){
+			alert("내용을입력해주세요!");
+			return;
+		} */
+		var formData = $('#comment').serialize();
+		$.ajax({
+			url : "/boardNotices/moreComment/",
+			type : "POST",
+			data : formData,
+			headers : {
+				"X-Requested-With" : "XMLHttpRequest"
+			},
+			dataType : "json",
+			success : function(msg) {
+				alert("등록되었습니다.");
+				window.close();
+			},
+			error : function(request, status, error) {
+				ajaxErrorHandler(request);
+			}
+		});
+	}
+
+	function closeWindow() {
+		setTimeout(function() {
+			window.close();
+		}, 100);
+	}
+</script>
+</html>

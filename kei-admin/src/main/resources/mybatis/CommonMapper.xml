@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="kei.persistence.CommonMapper">
+
+	<!-- 테이블 존재 유무 체크 -->
+	<select id="isTableExist" parameterType="string" resultType="boolean">
+		/* isTableExist */
+		SELECT	CASE WHEN A.tableName IS NULL THEN false
+					ELSE true
+				END AS tableExist
+		FROM (
+			SELECT to_regclass('${value}') AS tableName
+		) A
+	</select>
+</mapper>

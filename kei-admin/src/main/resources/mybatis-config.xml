@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+    PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+    <settings>
+        <setting name="lazyLoadingEnabled" value="false" />
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+    </settings>
+
+    <typeAliases>
+    	<typeAlias type="kei.domain.accesslog.AccessLog" alias="accessLog" />
+    	<typeAlias type="kei.domain.board.BoardNotice" alias="boardNotice"/>
+    	<typeAlias type="kei.domain.board.BoardNoticeFile" alias="boardNoticeFile"/>
+		<typeAlias type="kei.domain.board.BoardNoticeComment" alias="boardNoticeComment"/>
+    	<typeAlias type="kei.domain.converter.ConverterJob" alias="converterJob" />
+    	<typeAlias type="kei.domain.converter.ConverterJobFile" alias="converterJobFile" />
+		<typeAlias type="kei.domain.common.PartitionTable" alias="partitionTable" />
+		<typeAlias type="kei.domain.data.DataAdjustLog" alias="dataAdjustLog" />
+		<typeAlias type="kei.domain.data.DataAttribute" alias="dataAttribute" />
+		<typeAlias type="kei.domain.extrusionmodel.DataLibraryConverterJob" alias="dataLibraryConverterJob" />
+		<typeAlias type="kei.domain.extrusionmodel.DataLibraryConverterJobFile" alias="dataLibraryConverterJobFile" />
+		<typeAlias type="kei.domain.extrusionmodel.DataLibraryGroup" alias="dataLibraryGroup" />
+		<typeAlias type="kei.domain.extrusionmodel.DataLibrary" alias="dataLibrary" />
+		<typeAlias type="kei.domain.extrusionmodel.DataLibraryUpload" alias="dataLibraryUpload" />
+		<typeAlias type="kei.domain.extrusionmodel.DataLibraryUploadFile" alias="dataLibraryUploadFile" />
+		<typeAlias type="kei.domain.data.DataFileInfo" alias="dataFileInfo" />
+		<typeAlias type="kei.domain.data.DataFileParseLog" alias="dataFileParseLog" />
+		<typeAlias type="kei.domain.data.DataSmartTilingFileInfo" alias="dataSmartTilingFileInfo" />
+		<typeAlias type="kei.domain.data.DataSmartTilingFileParseLog" alias="dataSmartTilingFileParseLog" />
+		<typeAlias type="kei.domain.data.DataAttributeFileInfo" alias="dataAttributeFileInfo" />
+		<typeAlias type="kei.domain.data.DataObjectAttribute" alias="dataObjectAttribute" />
+		<typeAlias type="kei.domain.data.DataObjectAttributeFileInfo" alias="dataObjectAttributeFileInfo" />
+		<typeAlias type="kei.domain.data.DataGroup" alias="dataGroup" />
+		<typeAlias type="kei.domain.data.DataInfo" alias="dataInfo" />
+		<typeAlias type="kei.domain.data.DataInfoSimple" alias="dataInfoSimple" />
+		<typeAlias type="kei.domain.data.DataInfoLog" alias="dataInfoLog" />
+		<typeAlias type="kei.domain.extrusionmodel.DesignLayerGroup" alias="designLayerGroup" />
+		<typeAlias type="kei.domain.extrusionmodel.DesignLayer" alias="designLayer" />
+		<typeAlias type="kei.domain.extrusionmodel.DesignLayerLand" alias="designLayerLand" />
+		<typeAlias type="kei.domain.extrusionmodel.DesignLayerBuilding" alias="designLayerBuilding" />
+		<typeAlias type="kei.domain.extrusionmodel.DesignLayerBuildingHeight" alias="designLayerBuildingHeight" />
+		<typeAlias type="kei.domain.extrusionmodel.DesignLayerBuildingUnit" alias="designLayerBuildingUnit" />
+		<typeAlias type="kei.domain.extrusionmodel.DesignLayerLine" alias="designLayerLine" />
+		<typeAlias type="kei.domain.extrusionmodel.DesignLayerAttribute" alias="designLayerAttribute" />
+		<typeAlias type="kei.domain.extrusionmodel.DesignLayerFileInfo" alias="designLayerFileInfo" />
+		<typeAlias type="kei.domain.extrusionmodel.DesignLayerLog" alias="designLayerLog" />
+		<typeAlias type="kei.domain.policy.GeoPolicy" alias="geoPolicy" />
+		<typeAlias type="kei.domain.issue.Issue" alias="issue" />
+    	<typeAlias type="kei.domain.layer.Layer" alias="layer" />
+    	<typeAlias type="kei.domain.layer.LayerGroup" alias="layerGroup" />
+    	<typeAlias type="kei.domain.layer.LayerFileInfo" alias="layerFileInfo" />
+    	<typeAlias type="kei.domain.menu.Menu" alias="menu" />
+		<typeAlias type="kei.domain.microservice.MicroService" alias="microService" />
+		<typeAlias type="kei.domain.urban.UrbanGroup" alias="urbanGroup" />
+		<typeAlias type="kei.domain.policy.Policy" alias="policy" />
+    	<typeAlias type="kei.domain.role.Role" alias="role" />
+		<typeAlias type="kei.domain.uploaddata.UploadData" alias="uploadData" />
+		<typeAlias type="kei.domain.uploaddata.UploadDataFile" alias="uploadDataFile" />
+    	<typeAlias type="kei.domain.user.UserInfo" alias="userInfo" />
+    	<typeAlias type="kei.domain.user.UserGroup" alias="userGroup" />
+    	<typeAlias type="kei.domain.user.UserGroupMenu" alias="userGroupMenu" />
+    	<typeAlias type="kei.domain.user.UserGroupRole" alias="userGroupRole" />
+		<typeAlias type="kei.domain.user.UserGroupMicroService" alias="userGroupMicroService" />
+    	<typeAlias type="kei.domain.user.UserPolicy" alias="userPolicy"/>
+    	<typeAlias type="kei.domain.user.UserSession" alias="userSession" />
+    	<typeAlias type="kei.domain.widget.Widget" alias="widget" />
+    </typeAliases>
+
+	<typeHandlers>
+		<typeHandler handler="org.apache.ibatis.type.EnumOrdinalTypeHandler" javaType="java.math.RoundingMode"/>
+		<!--<typeHandler handler="org.apache.ibatis.type.LocalDateTimeTypeHandler" javaType="java.time.LocalDateTime"/>-->
+		<typeHandler handler="kei.typehandler.LocalDateTimeTypeHandler" javaType="java.time.LocalDateTime" />
+	</typeHandlers>
+
+</configuration>

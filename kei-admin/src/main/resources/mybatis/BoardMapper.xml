@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="kei.persistence.BoardNoticeMapper">
+
+	<!-- 게시물 총 건수 -->
+	<select id="getBoardTotalCount" parameterType="boardNotice" resultType="long">
+		/* getBoardTotalCount */
+		SELECT COUNT(user_id) 
+		FROM board_notice
+		<trim prefix="WHERE" prefixOverrides="AND">
+			<if test="search_word != null and search_word != '' and search_value != null and search_value != '' and search_option == '0'.toString()">
+			${search_word} = #{search_value}
+			</if>
+			<if test="search_word != null and search_word != '' and search_value != null and search_value != '' and search_option == '1'.toString()">
+			${search_word} LIKE '%' || #{search_value} || '%'
+			</if>
+			<if test="available != null and available != ''">
+			AND available = #{available}
+			</if>
+			<if test="start_date != null and start_date != ''">
+			<![CDATA[
+			AND insert_date >= TO_TIMESTAMP(#{start_date}, 'YYYYMMDDHH24MISSUS')
+			]]>
+			</if>
+			<if test="end_date != null and end_date != ''">
+			<![CDATA[
+			AND insert_date <= TO_TIMESTAMP(#{end_date}, 'YYYYMMDDHH24MISSUS')
+			]]>
+			</if>
+		</trim>
+	</select>
+
+	<!-- 게시물 목록 -->
+	<select id="getListBoard" parameterType="boardNotice" resultType="boardNotice">
+		/* getListBoard */
+		SELECT A.*, 
+			(SELECT user_name FROM user_info WHERE user_id = A.user_id) AS user_name, 
+			(SELECT count(board_notice_comment_id) FROM board_notice_comment WHERE board_notice_id = A.board_notice_id) AS comment_count
+		FROM(
+			SELECT *
+			FROM board_notice
+			<![CDATA[WHERE start_date <= now() AND end_date >= now()]]>
+			<trim prefix="WHERE" prefixOverrides="AND">
+				<if test="search_word != null and search_word != '' and search_value != null and search_value != '' and search_option == '0'.toString()">
+				${search_word} = #{search_value}
+				</if>
+				<if test="search_word != null and search_word != '' and search_value != null and search_value != '' and search_option == '1'.toString()">
+				${search_word} LIKE '%' || #{search_value} || '%'
+				</if>
+				<if test="available != null and available != ''">
+				AND available = #{available}
+				</if>
+				<if test="startDate != null and startDate != ''">
+				<![CDATA[
+				AND insert_date >= TO_TIMESTAMP(#{startDate}, 'YYYYMMDDHH24MISSUS')
+				]]>
+				</if>
+				<if test="endDate != null and endDate != ''">
+				<![CDATA[
+				AND insert_date <= TO_TIMESTAMP(#{endDate}, 'YYYYMMDDHH24MISSUS')
+				]]>
+				</if>
+			</trim>
+			<choose>
+			<when test="orderWord != null and orderWord != '' and orderValue != null and orderValue != ''">
+			ORDER BY ${orderWord} ${orderValue}
+			</when>
+			<otherwise>
+			ORDER BY insert_date DESC, board_notice_id DESC
+			</otherwise>
+			</choose>
+			OFFSET #{offset} LIMIT #{limit}
+		) A
+	</select>
+	
+	<!-- 게시물 Comment 목록 -->
+	<select id="getListBoardNoticeComment" parameterType="long" resultType="boardNoticeComment">
+		/* getListBoardNoticeComment */
+		SELECT A.*, (SELECT user_name FROM user_info WHERE user_id = A.user_id) 
+		FROM board_notice_comment A 
+		WHERE board_notice_id = #{boardNoticeId} 
+		ORDER BY insert_date DESC
+	</select>
+	
+	<!-- 게시물 Comment 목록(boardNoticeId, parent, depth) -->
+	<select id="getListBoardNoticeCommentByDepth" parameterType="boardNoticeComment" resultType="boardNoticeComment">
+		/* getListBoardNoticeCommentByDepth */
+		SELECT A.*, (SELECT user_name FROM user_info WHERE user_id = A.user_id) 
+		FROM board_notice_comment A 
+		WHERE depth = #{depth} 
+		AND board_notice_id = #{boardNoticeId}
+		AND parent = #{parent}
+		ORDER BY insert_date DESC
+	</select>
+	
+	<!-- 게시물 Comment 목록 -->
+	<select id="getListBoardNoticeCommentByParent" parameterType="long" resultType="boardNoticeComment">
+		/* getListBoardNoticeCommentByParent */
+		SELECT A.*, (SELECT user_name FROM user_info WHERE user_id = A.user_id) 
+		FROM board_notice_comment A 
+		WHERE board_notice_comment_id = #{boardNoticeCommentId} 
+		ORDER BY insert_date DESC
+	</select>
+	
+	<!-- 게시물 정보 -->
+	<select id="getBoard" parameterType="long" resultType="boardNotice">
+		/* getBoard */
+		SELECT A.*,
+			(SELECT user_name FROM user_info WHERE user_id = A.user_id) AS user_name, 
+			(SELECT contents FROM board_notice_detail WHERE board_notice_id = A.board_notice_id) AS contents 
+		FROM board_notice A
+		WHERE board_notice_id = #{boardNoticeId}
+	</select>
+	
+	<!-- 게시물 Comment 정보 -->
+	<select id="getBoardNoticeComment" parameterType="long" resultType="boardNoticeComment">
+		/* getBoardNoticeComment */
+		SELECT * 
+		FROM board_notice_comment
+		WHERE board_notice_comment_id = #{boardNoticeCommentId}
+	</select>
+	
+	<!-- 업로딩한 파일  -->
+	<select id="getBoardNoticeFile" parameterType="Long" resultType="boardNoticeFile">
+		/* getBoardNoticeFile */
+		SELECT A.*
+		FROM board_notice_file A
+		WHERE A.board_notice_file_id = #{boardNoticeFileId};
+	</select>
+	
+	<!-- 업로딩한 파일 목록 -->
+	<select id="getBoardNoticeFiles" parameterType="Long" resultType="boardNoticeFile">
+		/* getBoardNoticeFiles */
+		SELECT B.*
+		FROM board_notice A, board_notice_file B
+		WHERE B.board_notice_id = #{boardNoticeId}
+		AND A.board_notice_id = B.board_notice_id;
+	</select>
+	
+	<!-- 게시물 등록 -->
+	<insert id="insertBoard" parameterType="boardNotice">
+		/* insertBoard */
+		<selectKey keyProperty="boardNoticeId" resultType="long" order="BEFORE">
+    		SELECT nextval('board_notice_seq')
+  		</selectKey>
+		INSERT INTO board_notice(
+			board_notice_id, title, user_id, start_date, end_date, available, client_ip
+		) values(
+			#{boardNoticeId}, #{title}, #{userId}, 
+			<if test="start_date == null or start_date == ''">
+			null,
+			</if>
+			<if test="start_date != null and start_date != ''">
+			TO_TIMESTAMP(#{start_date}, 'YYYYMMDDHH24MISSUS'),
+			</if>
+			<if test="end_date == null or end_date == ''">
+			null,
+			</if>		
+			<if test="end_date != null and end_date != ''">
+			TO_TIMESTAMP(#{end_date}, 'YYYYMMDDHH24MISSUS'),
+			</if>			
+			#{available}, #{clientIp}
+		)
+	</insert>
+	
+	<!-- 사용자 파일 업로딩 -->
+	<insert id="insertFile" parameterType="boardNoticeFile" >
+		/* insertFile */
+		<selectKey keyProperty="boardNoticeFileId" resultType="long" order="BEFORE">
+    		SELECT NEXTVAL('board_notice_file_seq')
+  		</selectKey>
+		INSERT INTO board_notice_file(
+			board_notice_file_id, board_notice_id,
+			file_name, file_real_name, file_path, file_size, file_ext
+		) VALUES (
+			#{boardNoticeFileId}, #{boardNoticeId}, #{fileName}, #{fileRealName}, #{filePath}, #{fileSize}, #{fileExt}
+		)
+	</insert>
+	
+		
+	<!-- 게시물 상세 등록 -->
+	<insert id="insertBoardDetail" parameterType="boardNotice">
+		/* insertBoardDetail */
+		<selectKey keyProperty="boardNoticeDetailId" resultType="long" order="BEFORE">
+    		SELECT nextval('board_notice_detail_seq')
+  		</selectKey>
+		INSERT INTO board_notice_detail (
+			board_notice_detail_id, board_notice_id, contents
+		) values (
+			#{boardNoticeDetailId}, #{boardNoticeId}, #{contents}
+		)
+	</insert>
+	
+	<!-- 게시물 Comment 등록 -->
+	<insert id="insertBoardNoticeComment" parameterType="boardNoticeComment">
+		/* insertBoardNoticeComment */
+		<selectKey keyProperty="boardNoticeCommentId" resultType="long" order="BEFORE">
+    		SELECT nextval('board_notice_comment_seq')
+  		</selectKey>
+		INSERT INTO board_notice_comment(
+			board_notice_comment_id, board_notice_id, user_id, content, client_ip
+		) values(
+			#{boardNoticeCommentId}, #{boardNoticeId}, #{userId}, #{content}, #{clientIp}
+		)
+	</insert>
+	
+	<!-- 게시물  more Comment 등록 -->
+	<insert id="insertBoardNoticeMoreComment" parameterType="boardNoticeComment">
+		/* insertBoardNoticeMoreComment */
+		<selectKey keyProperty="boardNoticeCommentId" resultType="long" order="BEFORE">
+    		SELECT nextval('board_notice_comment_seq')
+  		</selectKey>
+		INSERT INTO board_notice_comment(
+			board_notice_comment_id, board_notice_id, user_id, content, client_ip, ancestor, parent, depth
+		) values(
+			#{boardNoticeCommentId}, #{boardNoticeId}, #{userId}, #{content}, #{clientIp}, #{ancestor}, #{parent}, #{depth}
+		)
+	</insert>
+	
+	<!-- 게시물 수정 -->	
+	<update id="updateBoard" parameterType="boardNotice">
+		/* updateBoard */
+		UPDATE board_notice
+		SET title = #{title},
+			start_date = TO_TIMESTAMP(#{start_date}, 'YYYYMMDDHH24MISS'),
+			end_date = TO_TIMESTAMP(#{end_date}, 'YYYYMMDDHH24MISS'),
+			available = #{available}
+		WHERE board_notice_id = #{boardNoticeId}
+	</update>
+	
+	<!-- 게시물 상세 수정 -->	
+	<update id="updateBoardDetail" parameterType="boardNotice">
+		/* updateBoardDetail */
+		UPDATE board_notice_detail
+		SET contents = #{contents}
+		WHERE board_notice_id = #{boardNoticeId}
+	</update>
+	
+	<!-- 게시물 조회 건수 증가 -->
+	<select id="updateBoardViewCount" parameterType="long">
+		/* updateBoardViewCount */
+		UPDATE board_notice
+		SET view_count = view_count + 1
+		WHERE board_notice_id = #{boardNoticeId}
+	</select>
+	
+	<!-- 게시물 Comment 추천수 증가 -->	
+	<update id="updateBoardCommentLikeCount" parameterType="long">
+		/* updateBoardCommentLikeCount */
+		UPDATE board_notice_comment
+		SET like_count = like_count + 1
+		WHERE board_notice_comment_id = #{boardNoticeCommentId}
+	</update>
+	
+	<!-- 게시물 삭제 -->
+	<delete id="deleteBoard" parameterType="long">
+		/* deleteBoard */
+		DELETE FROM board_notice WHERE board_notice_id = #{boardNoticeId}
+	</delete>
+	
+	<!-- 게시물 파일 삭제 -->
+	<delete id="deleteBoardNoticeFile" parameterType="long">
+		/* deleteBoard */
+		DELETE FROM board_notice_file WHERE board_notice_file_id = #{boardNoticeFileId}
+	</delete>
+	
+	<!-- 게시물 상세 삭제 -->
+	<delete id="deleteBoardDetail" parameterType="long">
+		/* deleteBoardDetail */
+		DELETE FROM board_notice_detail WHERE board_notice_id = #{boardNoticeId}
+	</delete>
+	
+	<!-- 게시물 Comment 삭제 -->
+	<delete id="deleteBoardNoticeComment" parameterType="long">
+		/* deleteBoardNoticeComment */
+		DELETE FROM board_notice_comment WHERE board_notice_comment_id = #{boardNoticeCommentId}
+	</delete>
+	
+	<!-- 게시물 Comment 일괄 삭제 -->
+	<delete id="deleteBoardNoticeCommentByBoardId" parameterType="long">
+		/* deleteBoardNoticeCommentByBoardId */
+		DELETE FROM board_notice_comment WHERE board_notice_id = #{boardNoticeId}
+	</delete>
+	
+	
+</mapper>
