@@ -5,17 +5,21 @@
 /*user-style css 때문에 important로 적용 */
 /* * { margin:0; padding:0; outline:0; vertical-align:middle !important; } */
 
-
+html, body {
+	margin: 0;
+	padding: 0;
+}
 html {
-	font-size: 62.5%; }
-	
-/* body { */
-/* 	font-size: 1.3em; currently ems cause chrome bug misinterpreting rems on body element */
-/* 	line-height: 1.6; */
-/* 	font-weight: 400; Regular 300~500, Bold 600~700, Extra Bold 800~900 */
-/* 	font-family: 'Nanum Gothic', sans-serif; */
-/* 	color: #888; } */
-	
+	font-size: 62.5%;
+}
+body {
+	font-size: 1.3em; /* currently ems cause chrome bug misinterpreting rems on body element */
+	line-height: 1.6;
+	font-weight: 400; /* Regular 300~500, Bold 600~700, Extra Bold 800~900 */
+	font-family: 'Nanum Gothic', sans-serif;
+	color: #888;
+}
+
 p {
 	margin: 0; }
 	
@@ -29,12 +33,13 @@ input, select, textarea, button,
 	font-size: 1.3rem;
 	color: #7d7d7d; }
 
-/* h1, h2, h3, h4, h5, h6 { */
-/* 	margin: 0; */
-/* 	font-weight: 700; */
-/* 	color: #34373d; } */
+ h1, h2, h3, h4, h5, h6 {
+ 	margin: 0;
+ 	font-weight: 700;
+ 	color: #34373d;
+ }
 	
-/* h1 { font-size: 4.0rem; line-height: 1.2;  letter-spacing: -.1rem;} */
+h1 { font-size: 4.0rem; line-height: 1.2;  letter-spacing: -.1rem;}
 h2 { font-size: 3.6rem; line-height: 1.25; letter-spacing: -.1rem; }
 h3 { font-size: 3.0rem; line-height: 1.3;  letter-spacing: -.1rem; }
 h4 { font-size: 2.4rem; line-height: 1.35; letter-spacing: -.08rem; }
@@ -1417,28 +1422,28 @@ table + .pagination {
 	
 /* Sign
 ?????????????????????????????????????????????????? */
-/*	
+
 .sign .site-body {
 	width: 670px;
 	max-width: 670px;
 	min-width: 670px;
 	margin: 150px auto;
 	padding: 0; }
-	
+
 .sign .container {
 	width: 100%;
 	max-width: 100%;
 	min-width: 100%;
 	margin: 0;
 	padding: 0; }
-	
+
 .sign .site-footer {
 	width: 100%;
 	max-width: 100%;
 	min-width: 100%;
 	position: fixed;
-	bottom: 0; }	
-	
+	bottom: 0; }
+
 .sign .panel {
 	background-color: #9065dc;
 	-webkit-border-radius: 5px;
@@ -1448,30 +1453,30 @@ table + .pagination {
 	box-sizing: border-box;
 	text-align: center;
 	display: table; }
-	
+
 .sign .panel a {
 	color: #fff; }
-	
+
 .sign .panel a:hover {
 	color: #d7caf1; }
 
 .sign .panel .sign-desc {
 	text-align: right;
 	color: #fff; }
-	
+
 .sign .panel .sign-title {
 	display: table-cell;
 	vertical-align: middle;
 	width: 285px;
 	height: 310px; }
-	
+
 .sign .panel .sign-inputs {
 	display: table-cell;
 	width: 385px;
 	height: 310px;
 	padding: 10px;
 	box-sizing: border-box; }
-	
+
 .sign .panel .text-sub {
 	font-size: 30px;
 	color: #ddd;
@@ -1481,7 +1486,7 @@ table + .pagination {
 	font-size: 64px;
 	color: #f2f2f2;
 	line-height: 0.8; }
-	
+
 .sign .panel .sign-inputs form {
 	margin: 30px 0; }
 
@@ -1493,20 +1498,20 @@ table + .pagination {
 	border: 0;
 	border-bottom: 1px solid #b598e8;
 	color: #fff; }
-	
+
 .sign .panel .sign-inputs input[type=text] {
 	margin-bottom: 15px; }
-	
+
 .sign .panel .sign-inputs input[type=password] {
 	margin-bottom: 35px; }
-	
+
 .sign .panel .sign-inputs label {
 	color: #fff;
 	font-size: 25px;
 	float: left;
 	margin-bottom: -27px;
 	margin-left: 10px; }
-	
+
 .sign .panel .sign-inputs input[type=submit] {
 	width: 78%;
 	background: #573592;
@@ -1514,11 +1519,11 @@ table + .pagination {
 	color: #f3a4dd;
 	height: 43px;
 	vertical-align: middle; }
-	
+
 .sign .panel .sign-inputs input[type=submit]:hover {
 	background: #5d399d;
 	border-color: #492786; }
-*/
+
 
 
 

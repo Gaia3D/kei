@@ -77,7 +77,7 @@
 
 		<!-- S: CONTENTS WRAP -->
 		<div id="contentsWrap" class="contentsWrap" style="display: none;">
-			<div th:replace="~{/data-library/data-library :: #dataLibraryContent}"></div>
+<!--			<div th:replace="~{/data-library/data-library :: #dataLibraryContent}"></div>-->
 
 			<div th:replace="~{/data/data :: #dataContent}"></div>
 			<div th:replace="~{/layer/list :: #layerContent}"></div>
@@ -183,10 +183,7 @@
 <script type="text/javascript" th:src="@{/externlib/terraformer/terraformer.js(cacheVersion=${contentCacheVersion})}"></script>
 <script type="text/javascript" th:src="@{/externlib/terraformer/terraformer-wkt-parser.js(cacheVersion=${contentCacheVersion})}"></script>
 <link rel="stylesheet" th:href="@{/externlib/toastr/toastr.css(cacheVersion=${contentCacheVersion})}" />
-<link rel="stylesheet" th:href="@{/css/{lang}/ds-style.css(lang=${lang}, cacheVersion=${contentCacheVersion})}" />
 <script type="text/javascript" th:src="@{/externlib/toastr/toastr.min.js(lang=${lang},cacheVersion=${contentCacheVersion})}" ></script>
-<script type="text/javascript" th:src="@{/js/{lang}/design-layer.js(lang=${lang},cacheVersion=${contentCacheVersion})}" defer></script>
-<script type="text/javascript" th:src="@{/js/{lang}/data-library.js(lang=${lang},cacheVersion=${contentCacheVersion})}" defer></script>
 <script type="text/javascript" th:src="@{/js/{lang}/layer.js(lang=${lang},cacheVersion=${contentCacheVersion})}"></script>
 <script type="text/javascript" th:src="@{/js/{lang}/map-data-controll.js(lang=${lang},cacheVersion=${contentCacheVersion})}"></script>
 <script type="text/javascript" th:src="@{/js/{lang}/map-init.js(lang=${lang},cacheVersion=${contentCacheVersion})}"></script>
@@ -330,34 +327,19 @@
                 alert(JS_MESSAGE["ajax.error.message"]);
              }
         });
-        //라벨템플릿 받은 후 실행.
-        //dataGroupList();
-        
-		//var dataGroupParams = { searchWord : "data_group_name", searchValue : null, searchOption : "1"};
-		//mapDataGroupList(1, dataGroupParams);
+
 		var dataInfoParams = { searchWord : "data_name", searchValue : null, searchOption : "1", dataGroupId : null, dataType : null};
 		mapDataInfoList(1, dataInfoParams);
-		//mapDataGroupList(1, null);
-        //mapDataInfoList(1, null, null, null);
-
-/*		extrusion();*/
 
         // 환경 설정.
         UserPolicy(magoInstance);
 
-		//AnalsLandScapeView(viewer, magoInstance);
 
         // 기본 레이어 랜더링
         setTimeout(function(){
 			KEI.map = new mapInit(magoInstance, KEI.baseLayers, geoPolicyJson);
 			KEI.map.initLayer();
 
-			// 분석
-			AnalsBuildHeight(viewer, magoInstance);
-			AnalsLandScapeDirection(viewer, magoInstance);
-			AnalsSunshine(viewer, magoInstance);
-			AnalsLandScape();
-			AnalsHeightLandScapeView(viewer, magoInstance);
         	cesiumCreditAlt(); //웹접근성
         }, geoPolicyJson.initDuration * 1000);
 
@@ -368,22 +350,6 @@
 		
 		extrusionTools(magoInstance);
 		
-		f4dController.addSmartTileGroup({
-			dataGroupId : 10000,
-			dataGroupKey : 'sKorea_Gyeonggi_Gwacheon',
-			dataGroupName : '과천시 건물들',
-			dataGroupPath : 'infra/demo/sKorea_Gyeonggi_Gwacheon/',
-			smartTileIndexPath: "infra/_TILE"
-		});
-		
-		f4dController.addSmartTileGroup({
-			dataGroupId : 9700,
-			dataGroupKey : 'sKorea_Gyeonggi_Gwacheon_kei',
-			dataGroupName : '과천시 건물들2',
-			dataGroupPath : 'infra/demo/sKorea_Gyeonggi_Gwacheon_kei/',
-			smartTileIndexPath: "infra/_TILE2"
-		});
-
 		KEI.selectedDataController = new SelectedDataController(e);
 		//나침반 시작
 		var compass = new Compass(viewer, document.getElementById('mapCtrlCompassOut'));

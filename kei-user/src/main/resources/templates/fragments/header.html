@@ -2,7 +2,7 @@
 <body>
     <header id="headerWrap">
         <div class="HamMenu on"><a href="#">메뉴</a></div>
-        <h1>KEI Digital Twin Platform</h1>
+        <h1>ICT 기반 환경영향평가</h1>
         <div class="gnb">
             <th:block th:if="${session.USER_SESSION}">
                 <ul>
@@ -26,35 +26,6 @@
                 </ul>
             </th:block>
         </div>
-
-		<script>
-        window.addEventListener('load', function() {
-		    let _hamMenuClick = function(){
-                Ppui.click('.HamMenu', function(){
-                    if(Ppui.hasClass(this, 'on')){
-                        Ppui.hide(['.navWrap', '#gnbWrap']);		
-                        document.querySelector('#magoContainer').style.width = '100%';
-                    }else{
-                        Ppui.show(['.navWrap', '#gnbWrap']);					
-                        document.querySelector('#magoContainer').style.width = 'calc(100% - 445px)';
-                    }
-                    
-                    //
-                    Ppui.toggleClass(this, 'on');
-                });
-            };
-
-            //
-            let interval = setInterval(function(){
-                if(typeof MAGO3D_INSTANCE !== "undefined" && MAGO3D_INSTANCE) {
-                    clearInterval(interval);
-                    //
-                    _hamMenuClick();
-                }
-            }, 500);
-
-		});
-		</script>
     </header>
 </body>
 </html>

@@ -41,8 +41,10 @@ public class LocaleInterceptor extends HandlerInterceptorAdapter {
 			accessibility = "en-US";
 		}
 
-		request.setAttribute("lang", lang);
-		request.setAttribute("accessibility", accessibility);
+//		request.setAttribute("lang", lang);
+//		request.setAttribute("accessibility", accessibility);
+		request.setAttribute("lang", "ko");
+		request.setAttribute("accessibility", "ko-KR");
 
         return true;
     }
