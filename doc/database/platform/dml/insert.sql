@@ -89,10 +89,10 @@ values
 insert into menu(menu_id, menu_type, menu_target, name, name_en, ancestor, parent, depth, previous_depth, view_order, url, url_alias, html_id, html_content_id,
     css_class, default_yn, use_yn, display_yn)
 values
-    (1001, '1', '0', '지구설계', 'CITYPLAN', 1001, 0, 1, 0, 1, '/cityplan', null, 'cityPlanMenu', 'cityPlanContent', 'cityplan', 'Y', 'Y', 'Y'),
-    (1002, '1', '0', '경관분석', 'LANDSCAPE', 1002, 0, 1, 1, 2, '/landscape', null, 'landScapePlanMenu', 'landScapeContent', 'landscape', 'Y', 'Y', 'Y'),
-    (1003, '1', '0', '일조분석', 'SUNSHINE', 1003, 0, 1, 1, 3, '/sunshine', null, 'sunShinePlanMenu', 'sunShineContent', 'sunshine', 'Y', 'Y', 'Y'),
-    (1004, '1', '0', '모델러', 'MODELER', 1004, 0, 1, 1, 4, '/data-library', null, 'dataLibraryMenu', 'dataLibraryContent', 'designlayer', 'Y', 'Y', 'Y'),
+--     (1001, '1', '0', '지구설계', 'CITYPLAN', 1001, 0, 1, 0, 1, '/cityplan', null, 'cityPlanMenu', 'cityPlanContent', 'cityplan', 'Y', 'Y', 'Y'),
+--     (1002, '1', '0', '경관분석', 'LANDSCAPE', 1002, 0, 1, 1, 2, '/landscape', null, 'landScapePlanMenu', 'landScapeContent', 'landscape', 'Y', 'Y', 'Y'),
+--     (1003, '1', '0', '일조분석', 'SUNSHINE', 1003, 0, 1, 1, 3, '/sunshine', null, 'sunShinePlanMenu', 'sunShineContent', 'sunshine', 'Y', 'Y', 'Y'),
+--     (1004, '1', '0', '모델러', 'MODELER', 1004, 0, 1, 1, 4, '/data-library', null, 'dataLibraryMenu', 'dataLibraryContent', 'designlayer', 'Y', 'Y', 'Y'),
 
     (1101, '1', '0', '데이터', 'DATA', 1101, 0, 1, 1, 5, '/data/map', null, 'dataMenu', 'dataContent', 'data', 'Y', 'Y', 'Y'),
     (1102, '1', '0', '변환', 'CONVERTER', 1102, 0, 1, 1, 6, '/upload-data/list', null, 'converterMenu', 'converterContent', 'converter', 'Y', 'Y', 'Y'),
@@ -176,10 +176,10 @@ values
 	(102, 1, 102, 'Y'),
 	(103, 1, 103, 'Y'),
 	--(NEXTVAL('user_group_menu_seq'), 1, 1001, 'Y'),
-	(NEXTVAL('user_group_menu_seq'), 1, 1001, 'Y'),
-	(NEXTVAL('user_group_menu_seq'), 1, 1002, 'Y'),
-	(NEXTVAL('user_group_menu_seq'), 1, 1003, 'Y'),
-	(NEXTVAL('user_group_menu_seq'), 1, 1004, 'Y'),
+-- 	(NEXTVAL('user_group_menu_seq'), 1, 1001, 'Y'),
+-- 	(NEXTVAL('user_group_menu_seq'), 1, 1002, 'Y'),
+-- 	(NEXTVAL('user_group_menu_seq'), 1, 1003, 'Y'),
+-- 	(NEXTVAL('user_group_menu_seq'), 1, 1004, 'Y'),
 	(NEXTVAL('user_group_menu_seq'), 1, 1101, 'Y'),
 	(NEXTVAL('user_group_menu_seq'), 1, 1102, 'Y'),
 	/*(NEXTVAL('user_group_menu_seq'), 1, 1103, 'Y'),*/
@@ -188,10 +188,10 @@ values
 	(NEXTVAL('user_group_menu_seq'), 1, 1106, 'Y'),
 
 	--(NEXTVAL('user_group_menu_seq'), 2, 1001, 'Y'),
-	(NEXTVAL('user_group_menu_seq'), 2, 1001, 'Y'),
-	(NEXTVAL('user_group_menu_seq'), 2, 1002, 'Y'),
-	(NEXTVAL('user_group_menu_seq'), 2, 1003, 'Y'),
-	(NEXTVAL('user_group_menu_seq'), 2, 1004, 'Y'),
+-- 	(NEXTVAL('user_group_menu_seq'), 2, 1001, 'Y'),
+-- 	(NEXTVAL('user_group_menu_seq'), 2, 1002, 'Y'),
+-- 	(NEXTVAL('user_group_menu_seq'), 2, 1003, 'Y'),
+-- 	(NEXTVAL('user_group_menu_seq'), 2, 1004, 'Y'),
 	(NEXTVAL('user_group_menu_seq'), 2, 1101, 'Y'),
 	(NEXTVAL('user_group_menu_seq'), 2, 1102, 'Y'),
 	/*(NEXTVAL('user_group_menu_seq'), 2, 1103, 'Y'),*/
