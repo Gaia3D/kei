@@ -265,20 +265,8 @@
 		// TODO : 세슘 MAP 선택 UI 제거,엔진에서 처리로 변경 예정.
 		if(viewer.baseLayerPicker) viewer.baseLayerPicker.destroy();
 		viewer.scene.globe.depthTestAgainstTerrain = true;
-		
-		viewer.clock.onTick.addEventListener(function(e){
-			var pitchDeg = Cesium.Math.toDegrees(viewer.scene.camera.pitch);
-			for(var i in viewer.dataSources._dataSources) {
- 				var ds = viewer.dataSources._dataSources[i];
- 				if(ds instanceof Cesium.CustomDataSource) {
- 					var entities = ds.entities.values;
- 					entities.forEach(function(entity) {
- 						entity.label.scale = (pitchDeg > -30) ? 0 : 0.5;
- 					});
- 				}
- 			}
-		});
 
+		dataGroupList();
 		//우측 상단 지도 컨트롤러, 당분간 map-controll.js 파일 삭제하지 말아주세요 ㅠㅠ
 		//MapControll(viewer);
 		
@@ -287,6 +275,9 @@
 		if(districtAvailable) {
 			DistrictControll(magoInstance);
 		}
+
+		var dataInfoParams = { searchWord : "data_name", searchValue : null, searchOption : "1", dataGroupId : null, dataType : null};
+        mapDataInfoList(1, dataInfoParams);
 
         // 환경 설정.
         UserPolicy(magoInstance);
@@ -311,55 +302,7 @@
 		//나침반 시작
 		var compass = new Compass(viewer, document.getElementById('mapCtrlCompassOut'));
 		mapControllEvent(e);
-		
-<!--		var baseMapController = new BaseMapController(viewer);-->
-<!--		var terrainController = new TerrainController(viewer, 'http://118.42.112.206:9997/tilesets/terrain/');-->
-		
-		
-        var promises = [];
-        var garaJsonCnt = 28;
-        for(var i=0;i<garaJsonCnt;i++) {
-			promises.push($.ajax({url: `http://localhost/sample/json/temp_json/${i}.geojson`, dataType: "json"}));
-        }
-        
-        $.when.apply($,promises).then(function(){
-            for(var i in arguments) {
-                var geoJson = arguments[i][0];
-                var segments2dArray = [];
-                var segmentsArray = geoJson.features;
-                var segmentsCount = segmentsArray.length;
-                for(var j=0; j<segmentsCount; j++)
-                {
-                    var segment = segmentsArray[j].geometry.coordinates;
-                    var strPoint2D = new Mago3D.Point2D(segment[0][0], segment[0][1]);
-                    var endPoint2D = new Mago3D.Point2D(segment[1][0], segment[1][1]);
-                    var segment2d = new Mago3D.Segment2D(strPoint2D, endPoint2D);
-                    segments2dArray.push(segment2d);
-                }
-                
-                segments2dObj[i] = segments2dArray;
-            }
-        });
-         
-        magoManager.on(Mago3D.MagoManager.EVENT_TYPE.F4DRENDERREADY, function(e){
-    		var f4d = e.f4d;
-   			var color = '190,190,190';
-   			if(f4d.data.nodeId === 'bridge_2'){
-   				color = '255,192,0';
-   			} else if(f4d.data.nodeId === 'bridge_1'){
-   				color = '49,161,208';
-   			} else if(f4d.data.nodeId === 'block_27'){
-   				color = '0,176,80';
-   			} else if(f4d.data.nodeId.indexOf('block') > -1 || f4d.data.nodeId.indexOf('bridge') > -1){
-   				color = '190,190,190';
-   			} else {
-   				return;
-   			}
-   			changeColorAPI(MAGO3D_INSTANCE, f4d.data.projectId, f4d.data.nodeId, null, 'isPhysical=true', color);
-   			
-    	});
-        
-        
+
 	}
 
 	// smart tiling data flyTo

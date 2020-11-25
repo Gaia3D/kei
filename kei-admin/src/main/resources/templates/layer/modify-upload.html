@@ -91,7 +91,7 @@
 								<td class="col-input">
 									<input type="hidden" id="layerGroupId" name="layerGroupId" th:field="*{layerGroupId}" />
 									<input type="text" id="layerGroupName" name="layerGroupName" th:field="*{layerGroupName}" class="m" readonly="readonly" />
-									<input type="button" id="layerGroupButtion" value="Layer 그룹 찾기" />
+									<input type="button" id="layerGroupButton" value="Layer 그룹 찾기" />
 								</td>
 								<th class="col-label" scope="row">
 			                        <label for="sharingPublic">공유 유형</label>
@@ -530,7 +530,7 @@
 	});
 	
 	// Layer Group 찾기
-	$( "#layerGroupButtion" ).on( "click", function() {
+	$( "#layerGroupButton" ).on( "click", function() {
 		layerGroupDialog.dialog( "open" );
 		layerGroupDialog.dialog( "option", "title", "Layer 그룹 선택");
 	});
