@@ -38,7 +38,7 @@ header {
 	text-indent: -9999px;
 }
 .HamMenu.on {
-	background-color: #0066a2;
+	background-color: #258fff;
 }
 
 h1 {
@@ -123,7 +123,7 @@ background-color: #262b3f;
 	float: left;
 	position: relative;
 	height: 100%;
-	background-color: #0066a2;
+	background-color: #258fff;
 }
 ul.nav {
 	float: left;
@@ -142,7 +142,7 @@ ul.nav li {
 }
 ul.nav li.on {
 	/*background-color: #258fff;*/
-	background-color: #262b3f;
+	background-color: #1467dd;
 }
 ul.nav li.search {
 	/*background-position: -445px 10px;*/
@@ -2360,7 +2360,7 @@ button.mode.on:hover {
 .totalSearch > button.btnTotalSearch {
 	width: 60px;
 	border-radius: 0 10px 10px 0;
-	background-color: #0066a2;
+	background-color: #1467dd;
 	color: #fff;
 }
 
@@ -2519,7 +2519,7 @@ ul.listDefault li.on > ul li > button {
 }
 
 .searchDataWrap {
-	background-color: #0066a2;
+	background-color: #258fff;
 }
 
 
@@ -2531,7 +2531,7 @@ ul.listDefault li.on > ul li > button {
 	display: flex; /* NEW, Spec - Opera 12.1, Firefox 20+ */
 	justify-content: center;
 	padding-top: 15px;
-	border-left: 1px solid #005689;
+	border-left: 1px solid #258fff;
 }
 .searchDataType > div {
 	text-align: center;
@@ -2567,12 +2567,12 @@ ul.listDefault li.on > ul li > button {
 .searchDataType input[type=radio]:checked + label,
 .searchDataType input[type=checkbox]:checked,
 .searchDataType input[type=checkbox]:checked + label {
-	color: #fff;
-	background-color: #258fff55;
+	color: #00050c;
+	background-color: #1260d05e;
 }
 
 .searchDataInputWrap {
-	border-left: 1px solid #005689;
+	border-left: 1px solid #258fff;
 	padding: 10px 20px 15px 20px;
 }
 .searchDataInput {
@@ -2603,7 +2603,7 @@ ul.listDefault li.on > ul li > button {
 }
 .searchDataInput > button.btnSearch {
 	width: 60px;
-	background-color: #262b3f;
+	background-color: #1467dd;
 	color: #fff;
 }
 
