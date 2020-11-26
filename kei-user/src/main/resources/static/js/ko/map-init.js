@@ -34,10 +34,7 @@ function mapInit(magoInstance, baseLayers, policy) {
 	    return a.zindex- b.zindex
 	});
 
-	// basemap 이 n개 이므로 basemap length 확인해서 레이어 추가/삭제 시 target index로 사용
-	var baseMapLength = imageryLayers._layers.filter(function(f){
-		return f.baseMapName;
-	}).length;
+	var baseMapLength = 1;
 	
 	/**
 	 * wms layer init
