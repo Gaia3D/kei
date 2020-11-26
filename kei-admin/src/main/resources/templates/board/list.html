@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html th:lang="${accessibility}" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="/layouts/default">
+<head>
+<title>Board 목록</title>
+<th:block layout:fragment="pageCustomStyle">
+	<link rel="stylesheet" th:href="@{/css/{lang}/font/font.css(lang=${lang},cacheVersion=${contentCacheVersion})}" />
+	<link rel="stylesheet" th:href="@{/images/{lang}/icon/glyph/glyphicon.css(lang=${lang},cacheVersion=${contentCacheVersion})}" />
+	<link rel="stylesheet" th:href="@{/externlib/normalize/normalize.min.css(cacheVersion=${contentCacheVersion})}" />
+	<link rel="stylesheet" th:href="@{/externlib/jquery-ui-1.12.1/jquery-ui.min.css(cacheVersion=${contentCacheVersion})}" />
+	<link rel="stylesheet" th:href="@{/css/fontawesome-free-5.2.0-web/css/all.min.css(cacheVersion=${contentCacheVersion})}">
+	<link rel="stylesheet" th:href="@{/css/{lang}/admin-style.css(lang=${lang},cacheVersion=${contentCacheVersion})}" />
+</th:block>
+</head>
+<body>
+	<th:block layout:fragment="pageCustomContent">
+		<div class="site-body">
+			<div class="container">
+				<div class="site-content">
+					<div th:replace="~{/fragments/sub-menu :: #subMenuWrap}"></div>
+					<div class="page-area">
+						<div th:replace="~{/fragments/page-header :: #pageHeaderWrap}"></div>
+						<div class="page-content">
+							<div class="filters">
+								<form id="boardNotice" th:object="${boardNotice}" method="get" th:action="@{/boardNotice/list}" onsubmit="return searchCheck();">
+									<div class="input-group row">
+										<div class="input-set">
+											<label for="search_word" class="hiddenTag">검색유형</label> 
+											<select id="search_word" name="search_word" class="select" title="검색유형" style="height: 30px;">
+												<option value="" th:text="#{select}"></option>
+												<option value="title">제목</option>
+											</select>
+											<label for="search_option" class="hiddenTag">검색옵션</label>
+											<select id="search_option" name="search_option" class="select" title="검색옵션" style="height: 30px;">
+												<option value="0" th:text="#{search.same}"></option>
+												<option value="1" th:text="#{search.include}"></option>
+											</select>
+											<label for="search_value" th:text="#{search.word}"></label>
+											<input type="search" id="search_value" name="search_value" class="m" style="float: right;" />
+										</div>
+										<div class="input-set">
+											<label for="startDate" th:text="#{search.date}"></label>
+											<input type="text" id="startDate" name="startDate" class="s date" autocomplete="off" />
+											<span class="delimeter tilde">~</span>
+											<label for="endDate" class="hiddenTag">종료일</label>
+											<input type="text" id="endDate" name="endDate" class="s date" autocomplete="off" />
+										</div>
+										<div class="input-set">
+											<label for="orderWord" th:text="#{search.order}"></label>
+											<select id="orderWord" name="orderWord" class="select" style="height: 30px;">
+												<option value="" th:text="#{search.basic}"></option>
+												<option value="title">게시물 명</option>
+												<option value="insert_date" th:text="#{search.insert.date}"></option>
+											</select>
+											<label for="orderValue" class="hiddenTag">정렬기준</label>
+											<select id="orderValue" name="orderValue" class="select" title="정렬기준" style="height: 30px;">
+												<option value="" th:text="#{search.basic}"></option>
+												<option value="ASC" th:text="#{search.ascending}"></option>
+												<option value="DESC" th:text="#{search.descending.order}"></option>
+											</select>
+											<label for="listCounter" class="hiddenTag">리스트건수</label>
+											<select id="listCounter" name="listCounter" class="select" title="리스트건수" style="height: 30px;">
+												<option value="10" th:text="#{search.ten.count}"></option>
+												<option value="50" th:text="#{search.fifty.count}"></option>
+												<option value="100" th:text="#{search.hundred.count}"></option>
+											</select>
+										</div>
+										<div class="input-set">
+											<input type="submit" th:value="#{search}" />
+										</div>
+									</div>
+								</form>
+							</div>
+							<div class="list">
+								<form id="listForm" th:object="${boardNotice}" th:action="@{#}" method="post">
+									<div class="list-header row">
+										<div class="list-desc u-pull-left">
+											<th:block th:text="#{all.d}"></th:block>
+											<em th:text="${pagination.totalCount}"></em>
+											<th:block th:text="#{search.what.count}"></th:block>
+											<th:block th:text="${pagination.pageNo}"></th:block>
+											/
+											<th:block th:text="${pagination.lastPage}"></th:block>
+											<th:block th:text="#{search.page}"></th:block>
+										</div>
+										<div class="list-functions u-pull-right">
+											<div class="button-group">
+												<a href="/boardNotice/input" class="button">게시물 등록</a>
+											</div>
+										</div>
+									</div>
+									<table class="list-table scope-col" summary="공지사항 목록 테이블">
+										<caption class="hiddenTag">게시물 목록</caption>
+										<col class="col-number"></col>
+										<col class="col-name" />
+										<col class="col-id" />
+										<col class="col-toggle" />
+										<col class="col-toggle" />
+										<col class="col-functions" />
+										<col class="col-functions" />
+										<col class="col-date" />
+										<thead>
+											<tr>
+												<th scope="col" class="col-number" th:text="#{number}"></th>
+												<th scope="col">제목</th>
+												<th scope="col">등록자</th>
+												<th scope="col">수정/삭제</th>
+												<th scope="col">등록일</th>
+												<th scope="col">조회수</th>
+											</tr>
+										</thead>
+										<tbody>
+											<th:block th:if="${#lists.isEmpty(boardNoticeList)}">
+												<tr>
+													<td colspan="8" class="col-none">게시물이 존재하지 않습니다.</td>
+												</tr>
+											</th:block>
+											<th:block th:unless="${#lists.isEmpty(boardNoticeList)}" th:each="boardNotice : ${boardNoticeList}">
+												<tr>
+													<td class="col-number" th:text="${pagination.rowNumber - boardNoticeStat.index}"></td>
+													<td class="col-type">
+														<a href="#" th:onclick="viewBoard([[${boardNotice.boardNoticeId}]], [[${boardNotice.title}]]); return false;" class="linkButton">[[${boardNotice.title}]]</a>
+													</td>
+													<td class="col-key" th:text="${boardNotice.userName}"></td>
+													<td class="col-type">
+														<a th:href="@{/boardNotice/modify(boardNoticeId=${boardNotice.boardNoticeId})}" class="image-button button-edit" th:text="#{modified}"></a>&nbsp;&nbsp;
+														<a href="#" th:onclick="deleteBoard([[${boardNotice.boardNoticeId}]]); return false;" class="image-button button-delete" th:text="#{delete}"></a>
+													</td>
+													<td class="col-date">
+														<th:block th:text="${#temporals.format(boardNotice.insertDate, 'yyyy-MM-dd HH:mm')}"></th:block>
+													</td>
+													<td class="col-view-count">
+														<th:block th:text="${boardNotice.viewCount}"></th:block>
+													</td>
+												</tr>
+											</th:block>
+										</tbody>
+									</table>
+								</form>
+							</div>
+							<div th:replace="~{/common/pagination :: #paginationArea}"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</th:block>
+	<th:block layout:fragment="pageCustomScript">
+		<script type="text/javascript" th:src="@{/externlib/jquery-3.3.1/jquery.min.js(cacheVersion=${contentCacheVersion})}"></script>
+		<script type="text/javascript" th:src="@{/externlib/jquery-ui-1.12.1/jquery-ui.min.js(cacheVersion=${contentCacheVersion})}"></script>
+		<script type="text/javascript" th:src="@{/js/{lang}/common.js(lang=${lang},cacheVersion=${contentCacheVersion})}"></script>
+		<script type="text/javascript" th:src="@{/js/{lang}/message.js(lang=${lang},cacheVersion=${contentCacheVersion})}"></script>
+		<script type="text/javascript" th:src="@{/js/navigation.js(cacheVersion=${contentCacheVersion})}"></script>
+		<script th:inline="javascript">
+$(document).ready(function() {
+	initDatePicker();
+
+	$("#search_word").val([[${boardNotice.searchWord}]]);
+	$("#search_value").val([[${boardNotice.searchValue}]]);
+	$("#order_word").val([[${boardNotice.orderWord}]]);
+	$("#order_value").val([[${boardNotice.orderValue}]]);
+
+	initCalendar(new Array("startDate", "endDate"), new Array([[${boardNotice.startDate}]], [[${boardNotice.endDate}]]));
+});
+
+function searchCheck() {
+	if($("#searchOption").val() === "1") {
+		if(confirm(JS_MESSAGE["search.option.warning"])) {
+			// go
+		} else {
+			return false;
+		}
+	}
+
+	var startDate = $("#startDate").val();
+	var endDate = $("#endDate").val();
+	if(startDate != null && startDate != "" && endDate != null && endDate != "") {
+		if(parseInt(startDate) > parseInt(endDate)) {
+			alert(JS_MESSAGE["search.date.warning"]);
+			$("#startDate").focus();
+			return false;
+		}
+	}
+	return true;
+}
+
+var deleteBoardFlag = true;
+function deleteBoard(boardNoticeId) {
+	if(deleteBoardFlag) {
+		if(confirm(JS_MESSAGE["delete.confirm"])) {
+			deleteBoardFlag = false;
+			$.ajax({
+				url: "/boardNotices/" + boardNoticeId,
+				type: "DELETE",
+				headers: {"X-Requested-With": "XMLHttpRequest"},
+				dataType: "json",
+				success: function(msg) {
+					alert(JS_MESSAGE["delete"]);
+					location.reload();
+				},
+		        error: function(request, status, error) {
+		        	// alert message, 세션이 없는 경우 로그인 페이지로 이동 - common.js
+		        	ajaxErrorHandler(request);
+		        	deleteBoardFlag = true;
+		        }
+			});
+		} else {
+			deleteBoardFlag = true;
+		}
+	} else {
+		alert(JS_MESSAGE["button.dobule.click"]);
+	}
+}
+
+// 게시물 보기
+function viewBoard(boardNoticeId, boardNoticeName) {
+    var url = "/boardNotice/" + boardNoticeId;
+    var width = 800;
+    var height = 700;
+
+    var popWin = window.open(url, "","toolbar=no ,width=" + width + " ,height=" + height + ", directories=no,status=yes,scrollbars=no,menubar=no,location=no");
+    popWin.document.title = boardNoticeName;
+}
+</script>
+	</th:block>
+</body>
+</html>

@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html th:lang="${accessibility}" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="/layouts/default">
+<head>
+	<meta charset="utf-8">
+	<title>Board 목록</title>
+	<th:block layout:fragment="pageCustomStyle">
+		<link rel="stylesheet" th:href="@{/css/{lang}/font/font.css(lang=${lang},cacheVersion=${contentCacheVersion})}" />
+		<link rel="stylesheet" th:href="@{/images/{lang}/icon/glyph/glyphicon.css(lang=${lang},cacheVersion=${contentCacheVersion})}" />
+		<link rel="stylesheet" th:href="@{/externlib/normalize/normalize.min.css(cacheVersion=${contentCacheVersion})}" />
+		<link rel="stylesheet" th:href="@{/externlib/jquery-ui-1.12.1/jquery-ui.min.css(cacheVersion=${contentCacheVersion})}" />
+		<link rel="stylesheet" th:href="@{/css/fontawesome-free-5.2.0-web/css/all.min.css(cacheVersion=${contentCacheVersion})}">
+		<link rel="stylesheet" th:href="@{/css/{lang}/admin-style.css(lang=${lang},cacheVersion=${contentCacheVersion})}" />
+	</th:block>
+</head>
+<body>
+<th:block layout:fragment="pageCustomContent">
+	<div class="site-body">
+		<div class="container">
+			<div class="page-content">
+						<div class="list">
+							<table class="list-table scope-col" summary="메뉴 아이콘 목록 테이블">
+							<caption class="hiddenTag">메뉴 아이콘 목록</caption>
+								<col class="col-number"></col>
+								<col class="col-name" />
+								<col class="col-id" />
+								<col class="col-toggle" />
+								<col class="col-toggle" />
+								<col class="col-functions" />
+								<col class="col-functions" />
+								<col class="col-date" />
+								<thead>
+									<tr>
+										<th scope="col" class="col-number" th:text="#{number}"></th>
+					                    <th scope="col">CSS</th>
+					                    <th scope="col">이미지</th>
+									</tr>
+								</thead>
+								<tbody>
+					                <tr>
+										<td class="col-number" th:text="1"></td>
+										<td class="col-type" th:text="glyph-home"></td>
+					                    <td class="col-type">
+					                    	<span th:class="|icon-glyph glyph-home|"></span>
+					                    </td>
+					                </tr>
+					                <tr>
+										<td class="col-number" th:text="2"></td>
+										<td class="col-type" th:text="glyph-users"></td>
+					                    <td class="col-type">
+					                    	<span th:class="|icon-glyph glyph-users|"></span>
+					                    </td>
+					                </tr>
+					                <tr>
+										<td class="col-number" th:text="3"></td>
+										<td class="col-type" th:text="glyph-monitor"></td>
+					                    <td class="col-type">
+					                    	<span th:class="|icon-glyph glyph-monitor|"></span>
+					                    </td>
+					                </tr>
+					                <tr>
+										<td class="col-number" th:text="4"></td>
+										<td class="col-type" th:text="glyph-check"></td>
+					                    <td class="col-type">
+					                    	<span th:class="|icon-glyph glyph-check|"></span>
+					                    </td>
+					                </tr>
+					                <tr>
+										<td class="col-number" th:text="5"></td>
+										<td class="col-type" th:text="glyph-desktop"></td>
+					                    <td class="col-type">
+					                    	<span th:class="|icon-glyph glyph-desktop|"></span>
+					                    </td>
+					                </tr>
+					                <tr>
+										<td class="col-number" th:text="6"></td>
+										<td class="col-type" th:text="userPolicy"></td>
+					                    <td class="col-type">
+					                    	<span th:class="|icon-glyph glyph-settings|"></span>
+					                    </td>
+					                </tr>
+					                <tr>
+										<td class="col-number" th:text="7"></td>
+										<td class="col-type" th:text="glyph-board"></td>
+					                    <td class="col-type">
+					                    	<span th:class="|icon-glyph glyph-board|"></span>
+					                    </td>
+					                </tr>
+					                <tr>
+										<td class="col-number" th:text="8"></td>
+										<td class="col-type" th:text="glyph-lock"></td>
+					                    <td class="col-type">
+					                    	<span th:class="|icon-glyph glyph-lock|"></span>
+					                    </td>
+					                </tr>
+					                <tr>
+										<td class="col-number" th:text="9"></td>
+										<td class="col-type" th:text="glyph-unlock"></td>
+					                    <td class="col-type">
+					                    	<span th:class="|icon-glyph glyph-unlock|"></span>
+					                    </td>
+					                </tr>
+					                <tr>
+										<td class="col-number" th:text="10"></td>
+										<td class="col-type" th:text="glyph-drop"></td>
+					                    <td class="col-type">
+					                    	<span th:class="|icon-glyph glyph-drop|"></span>
+					                    </td>
+					                </tr>
+					                <tr>
+										<td class="col-number" th:text="11"></td>
+										<td class="col-type" th:text="glyph-fold"></td>
+					                    <td class="col-type">
+					                    	<span th:class="|icon-glyph glyph-fold|"></span>
+					                    </td>
+					                </tr>
+					                <tr>
+										<td class="col-number" th:text="12"></td>
+										<td class="col-type" th:text="glyph-next"></td>
+					                    <td class="col-type">
+					                    	<span th:class="|icon-glyph glyph-next|"></span>
+					                    </td>
+					                </tr>
+					                <tr>
+										<td class="col-number" th:text="13"></td>
+										<td class="col-type" th:text="glyph-prev"></td>
+					                    <td class="col-type">
+					                    	<span th:class="|icon-glyph glyph-prev|"></span>
+					                    </td>
+					                </tr>
+					                <tr>
+										<td class="col-number" th:text="14"></td>
+										<td class="col-type" th:text="glyph-first"></td>
+					                    <td class="col-type">
+					                    	<span th:class="|icon-glyph glyph-first|"></span>
+					                    </td>
+					                </tr>
+					                <tr>
+										<td class="col-number" th:text="15"></td>
+										<td class="col-type" th:text="glyph-last"></td>
+					                    <td class="col-type">
+					                    	<span th:class="|icon-glyph glyph-last|"></span>
+					                    </td>
+					                </tr>
+					                <tr>
+										<td class="col-number" th:text="16"></td>
+										<td class="col-type" th:text="glyph-chart"></td>
+					                    <td class="col-type">
+					                    	<span th:class="|icon-glyph glyph-chart|"></span>
+					                    </td>
+					                </tr>
+					                <tr>
+										<td class="col-number" th:text="17"></td>
+										<td class="col-type" th:text="glyph-dashboard"></td>
+					                    <td class="col-type">
+					                    	<span th:class="|icon-glyph glyph-dashboard|"></span>
+					                    </td>
+					                </tr>
+					                <tr>
+										<td class="col-number" th:text="18"></td>
+										<td class="col-type" th:text="glyph-db"></td>
+					                    <td class="col-type">
+					                    	<span th:class="|icon-glyph glyph-db|"></span>
+					                    </td>
+					                </tr>
+					                <tr>
+										<td class="col-number" th:text="19"></td>
+										<td class="col-type" th:text="glyph-emark"></td>
+					                    <td class="col-type">
+					                    	<span th:class="|icon-glyph glyph-emark|"></span>
+					                    </td>
+					                </tr>
+					                <tr>
+										<td class="col-number" th:text="20"></td>
+										<td class="col-type" th:text="glyph-ex"></td>
+					                    <td class="col-type">
+					                    	<span th:class="|icon-glyph glyph-ex|"></span>
+					                    </td>
+					                </tr>
+					                <tr>
+										<td class="col-number" th:text="21"></td>
+										<td class="col-type" th:text="glyph-imark"></td>
+					                    <td class="col-type">
+					                    	<span th:class="|icon-glyph glyph-imark|"></span>
+					                    </td>
+					                </tr>
+					                <tr>
+										<td class="col-number" th:text="22"></td>
+										<td class="col-type" th:text="glyph-off"></td>
+					                    <td class="col-type">
+					                    	<span th:class="|icon-glyph glyph-off|"></span>
+					                    </td>
+					                </tr>
+					                <tr>
+										<td class="col-number" th:text="23"></td>
+										<td class="col-type" th:text="glyph-on"></td>
+					                    <td class="col-type">
+					                    	<span th:class="|icon-glyph glyph-on|"></span>
+					                    </td>
+					                </tr>
+					                <tr>
+										<td class="col-number" th:text="24"></td>
+										<td class="col-type" th:text="glyph-out"></td>
+					                    <td class="col-type">
+					                    	<span th:class="|icon-glyph glyph-out|"></span>
+					                    </td>
+					                </tr>
+					                <tr>
+										<td class="col-number" th:text="25"></td>
+										<td class="col-type" th:text="glyph-plus"></td>
+					                    <td class="col-type">
+					                    	<span th:class="|icon-glyph glyph-plus|"></span>
+					                    </td>
+					                </tr>
+					                <tr>
+										<td class="col-number" th:text="26"></td>
+										<td class="col-type" th:text="glyph-qmark"></td>
+					                    <td class="col-type">
+					                    	<span th:class="|icon-glyph glyph-qmark|"></span>
+					                    </td>
+					                </tr>
+					                <tr>
+										<td class="col-number" th:text="27"></td>
+										<td class="col-type" th:text="glyph-refresh"></td>
+					                    <td class="col-type">
+					                    	<span th:class="|icon-glyph glyph-refresh|"></span>
+					                    </td>
+					                </tr>
+					                <tr>
+										<td class="col-number" th:text="28"></td>
+										<td class="col-type" th:text="glyph-top"></td>
+					                    <td class="col-type">
+					                    	<span th:class="|icon-glyph glyph-top|"></span>
+					                    </td>
+					                </tr>
+					                <tr>
+										<td class="col-number" th:text="29"></td>
+										<td class="col-type" th:text="glyph-bottom"></td>
+					                    <td class="col-type">
+					                    	<span th:class="|icon-glyph glyph-bottom|"></span>
+					                    </td>
+					                </tr>
+					                <tr>
+										<td class="col-number" th:text="30"></td>
+										<td class="col-type" th:text="glyph-up"></td>
+					                    <td class="col-type">
+					                    	<span th:class="|icon-glyph glyph-up|"></span>
+					                    </td>
+					                </tr>
+					                <tr>
+										<td class="col-number" th:text="31"></td>
+										<td class="col-type" th:text="glyph-down"></td>
+					                    <td class="col-type">
+					                    	<span th:class="|icon-glyph glyph-down|"></span>
+					                    </td>
+					                </tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+		</div>
+	</div>
+</th:block>
+
+<th:block layout:fragment="pageCustomScript">
+<script type="text/javascript" th:src="@{/externlib/jquery-3.3.1/jquery.min.js(cacheVersion=${contentCacheVersion})}"></script>
+<script type="text/javascript" th:src="@{/externlib/jquery-ui-1.12.1/jquery-ui.min.js(cacheVersion=${contentCacheVersion})}"></script>
+<script type="text/javascript" th:src="@{/js/{lang}/common.js(lang=${lang},cacheVersion=${contentCacheVersion})}"></script>
+<script type="text/javascript" th:src="@{/js/{lang}/message.js(lang=${lang},cacheVersion=${contentCacheVersion})}"></script>
+<script type="text/javascript" th:src="@{/js/navigation.js(cacheVersion=${contentCacheVersion})}"></script>
+</th:block>
+</body>
+</html>

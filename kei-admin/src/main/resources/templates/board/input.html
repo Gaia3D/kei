@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html th:lang="${accessibility}" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="/layouts/default">
+<head>
+<title>공지사항 등록</title>
+<th:block layout:fragment="pageCustomStyle">
+	<link rel="stylesheet" th:href="@{/css/{lang}/font/font.css(lang=${lang},cacheVersion=${contentCacheVersion})}" />
+	<link rel="stylesheet" th:href="@{/images/{lang}/icon/glyph/glyphicon.css(lang=${lang},cacheVersion=${contentCacheVersion})}" />
+	<link rel="stylesheet" th:href="@{/externlib/normalize/normalize.min.css(cacheVersion=${contentCacheVersion})}" />
+	<link rel="stylesheet" th:href="@{/css/fontawesome-free-5.2.0-web/css/all.min.css(cacheVersion=${contentCacheVersion})}">
+	<link rel="stylesheet" th:href="@{/externlib/jquery-ui-1.12.1/jquery-ui.min.css(cacheVersion=${contentCacheVersion})}" />
+	<link rel="stylesheet" th:href="@{/externlib/dropzone-5.7.0/dropzone.min.css(cacheVersion=${contentCacheVersion})}">
+	<link rel="stylesheet" th:href="@{/css/{lang}/admin-style.css(lang=${lang}, cacheVersion=${contentCacheVersion})}" />
+	<script type="text/javascript" th:src="@{/externlib/dropzone-5.7.0/dropzone.min.js(cacheVersion=${contentCacheVersion})}"></script>
+	<style type="text/css">
+	.dropzone .dz-preview.lp-preview {
+		width: 150px;
+	}
+
+	.dropzone.hzScroll {
+		min-width: 700px;
+		overflow: auto;
+		white-space: nowrap;
+		border: 1px solid #e5e5e5;
+	}
+
+	.loader-txt p {
+		font-size: 13px;
+		color: #666;
+	}
+
+	.loader-txt p small {
+		font-size: 11.5px;
+		color: #999;
+	}
+
+	.loader {
+		position: relative;
+		text-align: center;
+		margin: 15px auto 35px auto;
+		z-index: 9999;
+		display: block;
+		width: 80px;
+		height: 80px;
+		border: 10px solid rgba(0, 0, 0, 0.3);
+		border-radius: 50%;
+		border-top-color: #000;
+		animation: spin 1s ease-in-out infinite;
+		-webkit-animation: spin 1s ease-in-out infinite;
+	}
+
+	@
+	keyframes spin {to { -webkit-transform:rotate(360deg);
+
+	}
+
+	}
+	@
+	-webkit-keyframes spin {to { -webkit-transform:rotate(360deg);
+
+	}
+	}
+</style>
+</th:block>
+</head>
+<body>
+	<th:block layout:fragment="pageCustomContent">
+		<div class="site-body">
+			<div class="container">
+				<div class="site-content">
+					<div th:replace="~{/fragments/sub-menu :: #subMenuWrap}"></div>
+					<div class="page-area">
+						<div th:replace="~{/fragments/page-header :: #pageHeaderWrap}"></div>
+						<div class="page-content">
+							<div class="input-header row">
+								<div class="content-desc u-pull-right">
+									<span class="icon-glyph glyph-emark-dot color-warning"></span>체크표시는 필수입력 항목입니다.
+								</div>
+							</div>
+							<form id="boardNotice" th:object="${boardNotice}" method="post" th:action="@{#}" onsubmit="return false;">
+								<table class="input-table scope-row">
+									<col class="col-label" />
+									<col class="col-input" />
+									<tr>
+										<th class="col-label" scope="row">
+											<label for="title">제목</label>
+											<span class="icon-glyph glyph-emark-dot color-warning"></span>
+										</th>
+										<td class="col-input"><input type="text" id="title" name="title" class="m" maxlength="256" /></td>
+									</tr>
+									<tr>
+										<th class="col-label" scope="row">
+											<label for="contents">내용</label>
+											<span class="icon-glyph glyph-emark-dot color-warning"></span>
+										</th>
+										<td class="col-input"><textarea id="contents" name="contents"></textarea></td>
+									</tr>
+									<tr>
+										<th class="col-label" scope="row">
+											<span>사용유무</span>
+											<span class="icon-glyph glyph-emark-dot color-warning"></span>
+										</th>
+										<td class="col-input radio-set">
+											<input type="radio" id="available_y" name="available" value="true" /> 
+											<label for="available_y">사용</label>
+											<input type="radio" id="available_n" name="available" value="false" />
+											<label for="available_n">사용안함</label>
+										</td>
+									</tr>
+									<tr>
+										<th class="col-label" scope="row">
+											<label for="start_date">게시기간</label>
+										</th>
+										<td class="col-input radio-set">
+											<input type="hidden" id="start_date" name="start_date" />
+											<input type="hidden" id="end_date" name="end_date" />
+											<input type="text" id="start_day" name="start_day" class="s date" placeholder="날짜" />
+											<input type="text" id="start_hour" name="start_hour" class="s" placeholder="시간" maxlength="2" />
+											<span class="delimeter">:</span>
+											<input type="text" id="start_minute" name="start_minute" class="s" placeholder="분" maxlength="2" />
+											<span class="delimeter tilde">~</span>
+											<input type="text" id="end_day" name="end_day" class="s date" placeholder="날짜" />
+											<input type="text" id="end_hour" name="end_hour" class="s" placeholder="시간" maxlength="2" />
+											<span class="delimeter">:</span>
+											<input type="text" id="end_minute" name="end_minute" class="s" placeholder="분" maxlength="2" />
+										</td>
+									</tr>
+								</table>
+							</form>
+							<ul id="boardButtonArea">
+								<li id="uploadBoardButton" class="onArea">
+									<h4 style="margin-top: 30px; margin-bottom: 5px;">파일 업로딩</h4>
+									<div class="fileSection" style="font-size: 17px;">
+										<form id="my-dropzone" action="" class="dropzone hzScroll">
+											<label for="dropzoneFile" class="hiddenTag">dropzoneFile영역</label>
+										</form>
+									</div>
+									<div class="button-group">
+										<div class="center-buttons">
+											<input type="submit" id="allFileUpload" th:value="#{save}" />
+											<input type="submit" id="allFileClear" value="파일 초기화" />
+											<a href="/boardNotice/list" class="button">목록</a>
+										</div>
+									</div>
+								</li>
+							</ul>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div th:replace="~{/board/spinner-dialog :: #fileUploadDialog}"></div>
+	</th:block>
+	<th:block layout:fragment="pageCustomScript">
+		<script type="text/javascript" th:src="@{/externlib/jquery-3.3.1/jquery.min.js(cacheVersion=${contentCacheVersion})}"></script>
+		<script type="text/javascript" th:src="@{/externlib/jquery-ui-1.12.1/jquery-ui.min.js(cacheVersion=${contentCacheVersion})}"></script>
+		<script type="text/javascript" th:src="@{/externlib/jquery-3.3.1/jquery-migrate-1.2.1.min.js(cacheVersion=${contentCacheVersion})}"></script>
+		<script type="text/javascript" th:src="@{/js/{lang}/common.js(lang=${lang},cacheVersion=${contentCacheVersion})}"></script>
+		<script type="text/javascript" th:src="@{/js/{lang}/message.js(lang=${lang},cacheVersion=${contentCacheVersion})}"></script>
+		<script type="text/javascript" th:src="@{/js/navigation.js(lang=${lang},cacheVersion=${contentCacheVersion})}"></script>
+
+		<script th:inline="javascript">
+		
+$(document).ready(function() {
+	initJqueryCalendar();
+	$( ".select" ).selectmenu();
+	
+	$("[name=available]").filter("[value='true']").prop("checked",true);
+});
+
+function check() {
+	if ($("#title").val() == "") {
+		alert("제목을 입력하여 주십시오.");
+		$("#title").focus();
+		return false;
+	}
+	if ($("#contents").val() == "") {
+		alert("내용을 입력하여 주십시오.");
+		$("#contents").focus();
+		return false;
+	}
+	if ($("#start_hour").val() > 23) {
+		alert("게시 시작시간을 올바르게 설정하여 주십시오.");
+		$("#start_hour").focus();
+		return false;
+	}
+	if ($("#start_minute").val() > 59) {
+		alert("게시 시작시간을 올바르게 설정하여 주십시오.");
+		$("#start_minute").focus();
+		return false;
+	}
+	if ($("#end_hour").val() > 23) {
+		alert("게시 종료시간을 올바르게 설정하여 주십시오.");
+		$("#end_hour").focus();
+		return false;
+	}
+	if ($("#end_minute").val() > 59) {
+		alert("게시 종료시간을 올바르게 설정하여 주십시오.");
+		$("#end_minute").focus();
+		return false;
+	}
+	
+	if($("#start_day").val() != null && $("#start_day").val() != "") {
+		if($("#start_hour").val() == null || $("#start_hour").val() == "") {
+			alert("게시 시작 시간을 올바르게 설정하여 주십시오.");
+			$("#start_hour").focus();
+			return false;
+		}
+		if($("#start_minute").val() == null || $("#start_minute").val() == "") {
+			alert("게시 시작 분을 올바르게 설정하여 주십시오.");
+			$("#start_minute").focus();
+			return false;
+		}
+		$("#start_date").val($("#start_day").val() + $("#start_hour").val() + $("#start_minute").val() + "00");
+	}else {
+		alert("게시 시작 날짜를 올바르게 설정하여 주십시오.");
+		$("#start_day").focus();
+		return false;
+	}
+	
+	if($("#end_day").val() != null && $("#end_day").val() != "") {
+		if($("#end_hour").val() == null || $("#end_hour").val() == "") {
+			alert("게시 종료 시간을 올바르게 설정하여 주십시오.");
+			$("#end_hour").focus();
+			return false;
+		}
+		if($("#end_minute").val() == null || $("#end_minute").val() == "") {
+			alert("게시 종료 분을 올바르게 설정하여 주십시오.");
+			$("#end_minute").focus();
+			return false;
+		}
+		$("#end_date").val($("#end_day").val() +  + $("#end_hour").val() + $("#end_minute").val() + "59");
+	}else {
+		alert("게시 종료 날짜를 올바르게 설정하여 주십시오.");
+		$("#end_day").focus();
+		return false;
+	}
+	
+}
+
+function initJqueryCalendar() {
+	$( ".date" ).datepicker({ 
+		dateFormat : "yymmdd",
+		dayNames : [ "일", "월", "화", "수", "목", "금", "토" ],
+		dayNamesShort : [ "일", "월", "화", "수", "목", "금", "토" ],
+		dayNamesMin : [ "일", "월", "화", "수", "목", "금", "토" ],
+		monthNames : [ "1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월"],
+		monthNamesShort : [ "1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월"],
+		prevText : "",
+		nextText : "",
+		showMonthAfterYear : true,
+		yearSuffix : "년"
+	});
+}
+
+var fileUploadDialog = $( ".spinner-dialog" ).dialog({
+	autoOpen: false,
+	width: 250,
+	height: 290,
+	modal: true,
+	resizable: false
+});
+
+//업로딩 파일 개수
+var uploadFileCount = 0;
+// dropzone 업로딩 결과(n개 파일을 올리면 n개 리턴이 옴)
+var uploadFileResultCount = 0;
+Dropzone.options.myDropzone = {
+    url: "/boardNotices",
+    //paramName: "file",
+    // Prevents Dropzone from uploading dropped files immediately
+    timeout: 3600000,
+    autoProcessQueue: false,
+    // 여러개의 파일 허용
+    uploadMultiple: true,
+    method: "post",
+    // 병렬 처리
+    parallelUploads: 10,
+    // 최대 파일 업로드 갯수
+    maxFiles: 10,
+    // 최대 업로드 용량 Mb단위
+    maxFilesize: 2000,
+    dictDefaultMessage: "업로딩 하려면 파일을 올리거나 클릭 하십시오.",
+    /* headers: {
+        "x-csrf-token": document.querySelectorAll("meta[name=csrf-token]")[0].getAttributeNode("content").value,
+    }, */
+    // 허용 확장자
+    acceptedFiles: initAcceptedFiles([[${policy.boardUploadType}]]),
+    // 업로드 취소 및 추가 삭제 미리 보기 그림 링크를 기본 추가 하지 않음
+    // 기본 true false 로 주면 아무 동작 못함
+    //clickable: true,
+    fallback: function() {
+        // 지원하지 않는 브라우저인 경우
+        alert("죄송합니다. 최신의 브라우저로 Update 후 사용해 주십시오.");
+        return;
+    },
+    init: function() {
+        var myDropzone = this; // closure
+        var uploadTask = document.querySelector("#allFileUpload");
+        var clearTask = document.querySelector("#allFileClear");
+
+        uploadTask.addEventListener("click", function(e) {
+            if (check() === false) {
+                return;
+            }
+
+            uploadFileCount = 0;
+            uploadFileResultCount = 0;
+            e.preventDefault();
+            e.stopPropagation();
+
+            if (myDropzone.getQueuedFiles().length > 0) {
+                uploadFileCount = myDropzone.getQueuedFiles().length;
+                myDropzone.processQueue();
+                //startSpinner("fileUploadSpinner");
+                fileUploadDialog.dialog( "open" );
+            } else {
+                //send empty
+                //myDropzone.uploadFiles([{ name: 'nofiles', upload: { filename: 'nofiles' } }]);
+                myDropzone._uploadData([{ upload: { filename: '' } }], [{ filename: '', name: '', data: new Blob() }]);
+            }
+        });
+
+        clearTask.addEventListener("click", function () {
+            // Using "_this" here, because "this" doesn't point to the dropzone anymore
+            if (confirm("[파일 업로딩]의 모든 파일을 삭제하겠습니까?")) {
+                // true 주면 업로드 중인 파일도 다 같이 삭제
+                myDropzone.removeAllFiles(true);
+            }
+        });
+
+        this.on("sending", function(file, xhr, formData) {
+			 formData.append("contents", $("#contents").val());
+        	 formData.append("title", $("#title").val());
+        	 formData.append("start_date", $("#start_date").val());
+        	 formData.append("start_day", $("#start_day").val());
+        	 formData.append("start_hour", $("#start_hour").val());
+        	 formData.append("start_minute", $("#start_minute").val());
+        	 formData.append("end_date", $("#end_date").val());
+        	 formData.append("end_day", $("#end_day").val());
+        	 formData.append("end_hour", $("#end_hour").val());
+        	 formData.append("end_minute", $("#end_minute").val());
+        	 formData.append("available", $("input[name='available']:checked").val());
+        	 formData.append("CSRFToken", $('input[name=CSRFToken]').val());
+        	 
+		});
+
+        // maxFiles 카운터를 초과하면 경고창
+        this.on("maxfilesexceeded", function (data) {
+            alert("최대 업로드 파일 수는 10개 입니다.");
+            return;
+        });
+
+        this.on("success", function(file, response) {
+        	if(file !== undefined && file.name !== undefined) {
+                console.log("file name = " + file.name);
+                $("#fileUploadSpinner").empty();
+                fileUploadDialog.dialog( "close" );
+				if(response.errorCode === undefined || response.errorCode === null) {
+					uploadFileResultCount ++;
+					if(uploadFileCount === uploadFileResultCount) {
+						alert(JS_MESSAGE["insert"]);
+					    uploadFileCount = 0;
+					    uploadFileResultCount = 0;
+	                    myDropzone.removeAllFiles(true);
+					}
+                } else {
+                	alertMessage(response);
+                	myDropzone.removeAllFiles(true);
+                }
+            } else {
+				console.log("------- success response = " + response);
+				if(response.statusCode <= 200) {
+	        		alert(JS_MESSAGE["insert"]);
+				} else {
+					alert(JS_MESSAGE[response.errorCode]);
+					myDropzone.removeAllFiles(true);
+					console.log("---- " + res.message);
+				}
+            }
+        });
+    }
+};
+
+</script>
+	</th:block>
+</body>
+</html>

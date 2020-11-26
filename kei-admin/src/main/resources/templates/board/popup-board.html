@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html th:lang="${accessibility}" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+<meta charset="utf-8">
+<meta name="referrer" content="origin">
+<meta name="viewport" content="width=device-width">
+<meta name="robots" content="index,nofollow" />
+<title>공지사항 | KEI</title>
+<link rel="stylesheet" th:href="@{/css/{lang}/font/font.css(lang=${lang}, cacheVersion=${contentCacheVersion})}" />
+<link rel="stylesheet" th:href="@{/images/{lang}/icon/glyph/glyphicon.css(lang=${lang}, cacheVersion=${contentCacheVersion})}" />
+<link rel="stylesheet" th:href="@{/externlib/normalize/normalize.min.css(cacheVersion=${contentCacheVersion})}" />
+<link rel="stylesheet" th:href="@{/externlib/jquery-ui-1.12.1/jquery-ui.min.css(cacheVersion=${contentCacheVersion})}" />
+<link rel="stylesheet" th:href="@{/css/{lang}/admin-style.css(lang=${lang}, cacheVersion=${contentCacheVersion})}" />
+<script type="text/javascript" th:src="@{/externlib/jquery-3.3.1/jquery.min.js(cacheVersion=${contentCacheVersion})}"></script>
+<script type="text/javascript" th:src="@{/externlib/jquery-ui-1.12.1/jquery-ui.min.js(cacheVersion=${contentCacheVersion})}"></script>
+<script type="text/javascript" th:src="@{/externlib/ol45/ol.js(cacheVersion=${contentCacheVersion})}"></script>
+<script type="text/javascript" th:src="@{/js/{lang}/map-view.js(lang=${lang}, cacheVersion=${contentCacheVersion})}"></script>
+
+<style>
+#boardButtonArea {
+	padding-top: 20px;
+}
+</style>
+</head>
+<body>
+	<div style="height: 100%;"></div>
+	<div class="page-content">
+		<table class="input-table scope-row">
+			<col class="col-label" />
+			<tr>
+				<th class="col-label" scope="row">
+					<label for="title">제목</label>
+				</th>
+				<td class="col-key" th:text="${boardNotice.title}"></td>
+			</tr>
+			<tr>
+				<th class="col-label" scope="row">
+					<label for="userName">작성자</label>
+				</th>
+				<td class="col-key" th:text="${boardNotice.userName}"></td>
+			</tr>
+			<tr>
+				<th class="col-label" scope="row">
+					<label for="insertDate">작성일</label>
+				</th>
+				<td class="col-key" th:text="${#temporals.format(boardNotice.insertDate, 'yyyy-MM-dd HH:mm')}"></td>
+			</tr>
+		</table>
+		<div class="board-contents">
+			<table class="input-table scope-row">
+				<col class="col-label" />
+				<tr>
+					<th class="col-label" scope="row">
+						<label>내용</label>
+					</th>
+				</tr>
+				<tr>
+					<td class="col-key">
+						<textarea name="contents" cols="30" rows="5" readonly>[[${boardNotice.contents}]]</textarea>
+					</td>
+				</tr>
+			</table>
+			<div class="file-list">
+				<div class="table-label">
+					<span>첨부파일</span>
+				</div>
+				<table class="list-table scope-col" summary="공지사항 첨부파일 테이블">
+					<caption class="hiddenTag">첨부파일</caption>
+					<thead>
+						<tr>
+							<th scope="col">파일명</th>
+							<th scope="col">다운로드</th>
+							<th scope="col">등록일</th>
+						</tr>
+					</thead>
+					<tbody id="boardFileInfoListArea">
+						<th:block th:if="${#lists.isEmpty(boardNoticeFileList)}">
+							<tr style="height: 50px;">
+								<td colspan="9" style="padding-top: 15px; text-align: center;">첨부 파일이 존재하지 않습니다.</td>
+							</tr>
+						</th:block>
+						<th:block th:unless="${#lists.isEmpty(boardNoticeFileList)}" th:each="boardNoticeFile, status : ${boardNoticeFileList}">
+							<tr>
+								<td class="col-key" th:text="${boardNoticeFile.fileRealName}" style="max-width: 315px; word-wrap: break-word;"></td>
+								<td class="col-type">
+									<a th:href="@{/boardNotices/{boardNoticeFileId}/file/download(boardNoticeFileId=${boardNoticeFile.boardNoticeFileId})}" class="linkButton">다운로드</a>
+								</td>
+								<td>
+									<th:block th:text="${#temporals.format(boardNoticeFile.insertDate, 'yyyy-MM-dd HH:mm:ss')}"></th:block>
+								</td>
+							</tr>
+						</th:block>
+					</tbody>
+				</table>
+			</div>
+			<div class="comment-list">
+				<div class="table-label">
+					<span>의견</span>
+				</div>
+				<form id="comment" th:object="${comment}" method="post" th:action="@{#}" onsubmit="return false;">
+					<input type="hidden" id="boardNoticeId" name="boardNoticeId" th:value="${boardNotice.boardNoticeId}" />
+					<th:block th:if="${boardNoticeComment==null}">
+						<input type="hidden" id="boardNoticeCommentId" name="boardNoticeCommentId" value="0" />
+					</th:block>
+					<table class="input-table scope-row">
+						<col class="col-label" />
+						<tr>
+							<th class="col-label" scope="row">
+								<label>내용</label>
+								<input type="submit" onClick="insertComment(); return false;" value="의견등록" />
+							</th>
+						</tr>
+						<tr>
+							<td class="col-key">
+								<textarea class="input-comment" id=content name="content" placeholder="자신의 의견을 간단히 적어주세요."></textarea>
+							</td>
+						</tr>
+					</table>
+				</form>
+				<table class="list-table scope-col" summary="공지사항 첨부파일 테이블">
+					<caption class="hiddenTag">의견</caption>
+					<thead>
+						<tr>
+							<th scope="col">작성자</th>
+							<th scope="col">내용</th>
+							<th scope="col">작성시간</th>
+							<th scope="col">추천</th>
+							<th scope="col">대댓글보기</th>
+						</tr>
+					</thead>
+					<tbody id="boardFileInfoListArea">
+						<th:block th:if="${boardNoticeCommentList.empty}">
+							<tr style="height: 50px;">
+								<td colspan="9" style="padding-top: 15px; text-align: center;">의견이 존재하지 않습니다.</td>
+							</tr>
+						</th:block>
+						<th:block th:unless="${boardNoticeCommentList.empty}"
+							th:each="boardNoticeComment, status : ${boardNoticeCommentList}">
+							<tr th:id="${boardNoticeComment.boardNoticeCommentId}">
+								<td class="col-key" th:text="${boardNoticeComment.userName}" style="max-width: 315px; word-wrap: break-word;"></td>
+								<td class="col-key" th:text="${boardNoticeComment.content}" style="max-width: 315px; word-wrap: break-word;"></td>
+								<td>
+									<th:block th:text="${#temporals.format(boardNoticeComment.insertDate, 'yyyy-MM-dd HH:mm:ss')}"></th:block>
+								</td>
+								<td class="col-key" th:text="${boardNoticeComment.likeCount}" style="max-width: 315px; word-wrap: break-word;"></td>
+								<td>
+									<input type="button" th:onClick="viewInsertMoreComment([[${boardNoticeComment.boardNoticeCommentId}]]); return false;" value="의견등록"/> 
+									<input th:id="viewMoreComment+${boardNoticeComment.boardNoticeCommentId}" type="button" th:onClick="viewMoreComment([[${boardNoticeComment.boardNoticeCommentId}]]); return false;" value="의견보기" toggle="true"/> 
+									<input type="button" th:onClick="likeComment([[${boardNoticeComment.boardNoticeCommentId}]]); return false;" value="추천" />
+								</td>
+							</tr>
+						</th:block>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+	<ul id="boardButtonArea">
+		<li id="uploadBoardButton" class="onArea">
+			<div class="button-group">
+				<div class="center-buttons">
+					<a class="button" onclick="closeWindow()">닫기</a>
+				</div>
+			</div>
+		</li>
+	</ul>
+</body>
+<script th:inline="javascript">
+	function insertComment() {
+		if ($("#content").val() == null || $("#content").val() == "") {
+			alert("내용을입력해주세요!");
+			return;
+		}
+		var formData = $('#comment').serialize();
+		$.ajax({
+			url : "/boardNotices/comment/",
+			type : "POST",
+			data : formData,
+			headers : {
+				"X-Requested-With" : "XMLHttpRequest"
+			},
+			dataType : "json",
+			success : function(msg) {
+				alert("등록되었습니다.");
+				location.reload();
+			},
+			error : function(request, status, error) {
+				ajaxErrorHandler(request);
+			}
+		});
+	}
+
+	function viewMoreComment(boardNoticeCommentId) {
+		
+		$.ajax({
+			url : "/boardNotice/moreComment/" + boardNoticeCommentId,
+			type : "GET",
+			headers : {
+				"X-Requested-With" : "XMLHttpRequest"
+			},
+			dataType : "json",
+			success : function(result) {
+				var resultLength = Number(JSON.stringify(result.boarNoticeMoreCommentList.length));
+				if(resultLength>0){
+					var toggle = $("#viewMoreComment"+boardNoticeCommentId).attr("toggle");
+					//$("#viewMoreComment"+boardNoticeCommentId).attr("onClick", "false");
+					var depth = Number(JSON.stringify(result.boarNoticeMoreCommentList[0].depth));
+					if(toggle=="true"){
+						$("#viewMoreComment"+boardNoticeCommentId).attr("toggle", "false");
+						$("#viewMoreComment"+boardNoticeCommentId).attr("value", "닫기");
+						closeMoreComment(depth);
+						
+						var emptyString = "";
+						for (var i = 0; i < depth; i++){
+							emptyString = emptyString+"&nbsp"+"&nbsp";
+						}
+							
+						for(var i = 0; i < resultLength; i++){
+							
+							$("#"+JSON.stringify(result.boarNoticeMoreCommentList[i].parent)).after(
+									"<tr class=\"moreComment "+ JSON.stringify(result.boarNoticeMoreCommentList[i].depth) +"\"id=\""+JSON.stringify(result.boarNoticeMoreCommentList[i].boardNoticeCommentId)+"\">"				+
+										"<td class=\"col-key\" style=\"max-width: 315px; word-wrap: break-word;\">"+emptyString+JSON.stringify(result.boarNoticeMoreCommentList[i].userName)+"</td>" 							+
+										"<td class=\"col-key\" style=\"max-width: 315px; word-wrap: break-word;\">"+JSON.stringify(result.boarNoticeMoreCommentList[i].content)+"</td>"											+
+										"<td>" +JSON.stringify(result.boarNoticeMoreCommentList[i].insertDate)+"</td>"																											+
+										"<td class=\"col-key\" style=\"max-width: 315px; word-wrap: break-word;\">"+JSON.stringify(result.boarNoticeMoreCommentList[i].likeCount)+"</td>"										+
+										"<td>"																																													+
+											"<input type=\"button\" onClick=\"viewInsertMoreComment("+JSON.stringify(result.boarNoticeMoreCommentList[i].boardNoticeCommentId)+"); return false;\" value=\"의견등록\"/>"			+"&nbsp"+
+											"<input type=\"button\" id=\"viewMoreComment"+JSON.stringify(result.boarNoticeMoreCommentList[i].boardNoticeCommentId)+"\" onClick=\"viewMoreComment("+JSON.stringify(result.boarNoticeMoreCommentList[i].boardNoticeCommentId)+"); return false;\" value=\"의견보기\" toggle=\"true\" />" 				+"&nbsp"+
+											"<input type=\"button\" onClick=\"likeComment("+JSON.stringify(result.boarNoticeMoreCommentList[i].boardNoticeCommentId)+"); return false;\" value=\"추천\" />"						+
+										"</td>"																																													+
+									"</tr>"
+									);
+						}
+					}else{
+						$("#viewMoreComment"+boardNoticeCommentId).attr("toggle", "true");
+						$("#viewMoreComment"+boardNoticeCommentId).attr("value", "의견보기");
+						closeMoreComment(depth);
+					}
+					
+				}else{
+					alert("등록된 의견이 없습니다.");
+				}
+			},
+			error : function(request, status, error) {
+				ajaxErrorHandler(request);
+			}
+		});
+		
+	}
+	
+	function likeComment(boardNoticeCommentId) {
+		$.ajax({
+			url : "/boardNotices/comment/like/" + boardNoticeCommentId,
+			type : "put",
+			headers : {
+				"X-Requested-With" : "XMLHttpRequest"
+			},
+			dataType : "json",
+			success : function(data) {
+				alert("success");
+				location.reload();
+			},
+			error : function(request, status, error) {
+				ajaxErrorHandler(request);
+			}
+		});
+	}
+
+	// 게시물 보기
+	function viewInsertMoreComment(boardNoticeCommentId) {
+		var url = "/boardNotice/comment/" + boardNoticeCommentId;
+		var width = 500;
+		var height = 300;
+
+		var popWin = window
+				.open(
+						url,
+						"",
+						"toolbar=no ,width="
+								+ width
+								+ " ,height="
+								+ height
+								+ ", directories=no,status=yes,scrollbars=no,menubar=no,location=no");
+		popWin.document.title = "추가의견등록";
+	}
+
+	function closeWindow() {
+		setTimeout(function() {
+			window.close();
+		}, 100);
+	}
+	
+	function closeMoreComment(depth){
+		var depthIncrease = 0;
+		var depthExist = true;
+		while(depthExist){
+			if($(".moreComment").is("."+(depth+depthIncrease))){
+				$("tr").remove(".moreComment."+(depth+depthIncrease));
+				
+			}else{
+				depthExist = false;
+			}
+			depthIncrease++;
+		}
+	}
+</script>
+</html>
