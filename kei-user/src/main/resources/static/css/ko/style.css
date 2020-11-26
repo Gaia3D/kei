@@ -399,7 +399,7 @@ input[type="button"],
 	margin: 0;
 	text-align: center;
 	color: #fff;
-	background: #0066a2;
+	background: #1467dd;
 	text-transform: uppercase;
 	text-decoration: none;
 	white-space: nowrap;
@@ -1285,8 +1285,8 @@ dl {
 	background-color: #eee; }
 	
 .pagination a.current-page {
-	background-color: #0066a2;
-	border-color: #0066a2;
+	background-color: #1467dd;
+	border-color: #1467dd;
 	color: #fff;
 	padding: 2px 10px;
 	}

@@ -3122,7 +3122,7 @@ user-select: none; /* Standard syntax */
 	min-width: 325px;
 }
 .tab li {display: inline-block;width: 11.6%;/* padding: 5px 0px; */color: #000;cursor: pointer;border: 1px solid #d9d9d9;border-bottom: 1px solid #ececec;border-radius: 10px;background-color: #fff;text-align: center;/*margin: 0 5px;*/}
-.tab li.on {color: #fff;border: 1px solid #d5d5d5;background-color: #19334a;}
+.tab li.on {color: #fff;border: 1px solid #d5d5d5;background-color: #1467dd;}
 .tab li > a {
 	display: inline-block;
 	width: 100%;
