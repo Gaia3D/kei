@@ -35,18 +35,18 @@
 					 th:text="#{${signinForm.errorCode}}"></div>
 			</div>
 			<div class="row" style="height: 60px; margin-top: 0px;">
-				<h1 style="font-size:38px; font-family:Lousianne; color:#573592;">KEI</h1>
+				<h1 style="font-size:38px; font-family:Lousianne; color:#573592;">KEITI</h1>
 			</div>
 			<div class="panel row">
 				<h2 class="sign-title"><span class="text-sub"><th:block th:text="#{common.user}"></th:block></span><br /><span class="text-main">SIGN IN</span></h2>
 				<div class="sign-inputs">
 					<div class="sign-desc" style="font-size: 16px; margin-top: 10px; margin-right: 25px;">
 						<span th:text="#{signin.title}"></span>&nbsp;
-						<select id="userLocale" name="userLocale" onchange="changeLanguage(this.value);"
-								style="background: #9065dc; color: white; height: 25px;">
-							<option value="ko"><th:block th:text="#{common.korea}"></th:block></option>
-							<option value="en"><th:block th:text="#{common.english}"></th:block></option>
-						</select>
+<!--						<select id="userLocale" name="userLocale" onchange="changeLanguage(this.value);"-->
+<!--								style="background: #9065dc; color: white; height: 25px;">-->
+<!--							<option value="ko"><th:block th:text="#{common.korea}"></th:block></option>-->
+<!--							<option value="en"><th:block th:text="#{common.english}"></th:block></option>-->
+<!--						</select>-->
 					</div>
 					<form id="signinForm" th:object="${signinForm}" method="post" action="/sign/process-signin">
 						<label for="userId"><span class="icon-glyph glyph-users"></span></label>
@@ -55,14 +55,14 @@
 						<input type="password" id="password" name="password" maxlength="32" th:title="#{common.password}" th:placeholder="#{common.password}" required="required" />
 						<input type="submit" value="Sign In" class="sign-submit" />
 					</form>
-					<div class="sign-links" style="font-size: 16px;">
-						Don't have an account? &nbsp;<a href="#" onclick="alert('준비중 입니다.'); return false;">Sign up</a>
-					</div>
+<!--					<div class="sign-links" style="font-size: 16px;">-->
+<!--						Don't have an account? &nbsp;<a href="#" onclick="alert('준비중 입니다.'); return false;">Sign up</a>-->
+<!--					</div>-->
 				</div>
 			</div>
 		</div>
 		<div class="" style="text-align: center; margin-top: 50px; font-size: 16px;">
-			KEI ⓒ Gaia3d Corp. All Rights Reserved
+			KEITI ⓒ Gaia3d Corp. All Rights Reserved
 		</div>
 	</div>
 </div>
