@@ -16,7 +16,7 @@ SelectedDataController.prototype.setEventHandler = function() {
 	
 	magoManager.on(Mago3D.MagoManager.EVENT_TYPE.SELECTEDF4D, function(result) {
 		var f4d = result.selected;
-		if(f4d && f4d instanceof Mago3D.Node && mobj.tool === ModelerObj.Tool.NONE) {
+		if(f4d && f4d instanceof Mago3D.Node) {
 			that.selectData(f4d);
 		}
 	});
